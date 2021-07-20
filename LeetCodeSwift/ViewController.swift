@@ -13,10 +13,16 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        let result =   bubbleSort(array: [1,34,65,6,3,87,8,0,9,8])
-//        print(result)
+        sort()
     }
     
    
+    func sort() {
+        let dataArray = [1,34,65,6,3,87,8,0,9,8]
+        
+        print("冒泡排序", bubbleSort(array: dataArray))
+
+        print("选择排序", selectionSort(array: dataArray))
+    }
 }
 

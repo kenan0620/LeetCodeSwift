@@ -21,8 +21,9 @@ class ViewController: UIViewController {
         let dataArray = [1,34,65,6,3,87,8,0,9,8]
         
         print("冒泡排序", bubbleSort(array: dataArray))
-
         print("选择排序", selectionSort(array: dataArray))
+        print("插入排序", insertionSort(array: dataArray))
+
     }
 }
 

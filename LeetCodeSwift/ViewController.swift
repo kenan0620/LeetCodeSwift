@@ -23,6 +23,7 @@ class ViewController: UIViewController {
         print("冒泡排序", bubbleSort(array: dataArray))
         print("选择排序", selectionSort(array: dataArray))
         print("插入排序", insertionSort(array: dataArray))
+        print("快速排序", quickSort(array: dataArray))
 
     }
 }

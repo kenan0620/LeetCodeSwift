@@ -88,7 +88,7 @@ func selectionSort(array: Array<Int>) -> Array<Int> {
  */
 func insertionSort(array: Array<Int>) -> Array<Int> {
     var sortArray = array
-
+    
     for i in 0 ..< array.count {
         let tempValue = sortArray[i]
         var insertIndex: Int = 0
@@ -115,7 +115,7 @@ func insertionSort(array: Array<Int>) -> Array<Int> {
  */
 func quickSort(array: Array<Int>) -> Array<Int> {
     var sortArray = array
-
+    
     if sortArray.count <= 1 {
         return sortArray
     }
@@ -129,12 +129,28 @@ func quickSortPrivateMethod(array: inout Array<Int>, leftIndex: Int, rightIndex:
         baseLineIndex = partition(arrray: &array, leftIndex: leftIndex, rightIndex: rightIndex)
         quickSortPrivateMethod(array: &array, leftIndex: leftIndex, rightIndex: baseLineIndex - 1)
         quickSortPrivateMethod(array: &array, leftIndex: baseLineIndex + 1, rightIndex: rightIndex)
-
+        
     }
-    
 }
+
+func partition(arrray: inout Array<Int>, leftIndex: Int, rightIndex: Int) -> Int{
+    var pivot = leftIndex, index = pivot + 1
     
-    func partition(arrray: inout Array<Int>, leftIndex: Int, rightIndex: Int) -> Int{
-        return 1
+    var i = index
+    while i <= rightIndex {
+        if arrray[i] < arrray[pivot] {
+            swap(array: &arrray, leftIndex: i, rightIndex: index)
+            index += 1
+        }
+        i += 1
     }
+    swap(array: &arrray, leftIndex: pivot, rightIndex: index - 1)
     
+    return index - 1
+}
+
+func swap(array: inout Array<Int>, leftIndex: Int, rightIndex: Int) -> Void {
+    let temp = array[leftIndex]
+    array[leftIndex] = array[rightIndex]
+    array[rightIndex] = temp
+}

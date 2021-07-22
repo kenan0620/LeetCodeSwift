@@ -48,14 +48,15 @@ class ListSolution {
     }
     
     /**
-     反转链表
+     反转链表 1、迭代
      如果链表不空,临时变量存储next, 然后链表的next指向新节点, 新链表为指向后的链表, 链表再转为临时链表
      重复操作, 直至链表为空结束
      */
-    static func reverseList(_ head: ListNode?) -> ListNode? {
- 
-        var old = head
+    static func reverseListOne(_ head: ListNode?) -> ListNode? {
+        ///
         var newHead: ListNode? = nil
+        /// 循环节点
+        var old = head
         while old != nil {
             let tmp = old?.next
             old?.next = newHead
@@ -64,6 +65,19 @@ class ListSolution {
         }
         
         return newHead
+    }
+    
+    /**
+     反转链表  递归
+     */
+    static func reverseListTwo(_ head: ListNode?) -> ListNode? {
+        if head == nil || head?.next == nil{
+            return head
+        }
+        let node : ListNode? = reverseListTwo(head?.next)
+        head?.next?.next = head
+        head?.next = nil
+        return node
     }
     
     

@@ -43,7 +43,15 @@ class ViewController: UIViewController {
         let headNode = ListNode.init(0)
         headNode.next = firstNode
 
-        ListSolution.reverseList(headNode)
+        let node =
+        ListSolution.reverseListTwo(headNode)
+
+        print(node as Any)
+        
+        let nodeOne =
+        ListSolution.reverseListOne(node)
+        
+        print(nodeOne as Any)
     }
 }
 

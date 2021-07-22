@@ -13,18 +13,37 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        sort()
+//        sort()
+        
+       list()
+        
     }
     
    
     func sort() {
-        let dataArray = [1,34,65,6,3,87,8,0,9,8]
+        let dataArray = [3,44,38,5,47,15,36,26,27,2,46,4,19,50,48]
         
         print("冒泡排序", bubbleSort(array: dataArray))
         print("选择排序", selectionSort(array: dataArray))
         print("插入排序", insertionSort(array: dataArray))
         print("快速排序", quickSort(array: dataArray))
 
+    }
+    
+    func list() {
+        let endNode = ListNode.init(5)
+        let fourNode = ListNode.init(4)
+        fourNode.next = endNode
+        let threeNode = ListNode.init(3)
+        threeNode.next = fourNode
+        let secondNode = ListNode.init(2)
+        secondNode.next = threeNode
+        let firstNode = ListNode.init(1)
+        firstNode.next = secondNode
+        let headNode = ListNode.init(0)
+        headNode.next = firstNode
+
+        ListSolution.reverseList(headNode)
     }
 }
 

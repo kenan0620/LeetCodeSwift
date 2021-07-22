@@ -3,7 +3,7 @@
 //  LeetCodeSwift
 //
 //  Created by 柯南 on 2021/7/20.
-//
+// 排序
 
 import Foundation
 
@@ -95,7 +95,6 @@ func insertionSort(array: Array<Int>) -> Array<Int> {
         
         for j in 0 ..< i {
             insertIndex = i - 1 - j
-            print("索引值为",insertIndex)
             if tempValue > sortArray[insertIndex] {
                 insertIndex = i - j
                 break
@@ -126,25 +125,25 @@ func quickSort(array: Array<Int>) -> Array<Int> {
 func quickSortPrivateMethod(array: inout Array<Int>, leftIndex: Int, rightIndex: Int) -> Void {
     var left = leftIndex, right = rightIndex, baseLineIndex = 0
     if left < right {
-        baseLineIndex = partition(arrray: &array, leftIndex: leftIndex, rightIndex: rightIndex)
+        baseLineIndex = partition(array: &array, leftIndex: leftIndex, rightIndex: rightIndex)
         quickSortPrivateMethod(array: &array, leftIndex: leftIndex, rightIndex: baseLineIndex - 1)
         quickSortPrivateMethod(array: &array, leftIndex: baseLineIndex + 1, rightIndex: rightIndex)
         
     }
 }
 
-func partition(arrray: inout Array<Int>, leftIndex: Int, rightIndex: Int) -> Int{
+func partition(array: inout Array<Int>, leftIndex: Int, rightIndex: Int) -> Int{
     var pivot = leftIndex, index = pivot + 1
     
     var i = index
     while i <= rightIndex {
-        if arrray[i] < arrray[pivot] {
-            swap(array: &arrray, leftIndex: i, rightIndex: index)
+        if array[i] < array[pivot] {
+            swap(array: &array, leftIndex: i, rightIndex: index)
             index += 1
         }
         i += 1
     }
-    swap(array: &arrray, leftIndex: pivot, rightIndex: index - 1)
+    swap(array: &array, leftIndex: pivot, rightIndex: index - 1)
     
     return index - 1
 }

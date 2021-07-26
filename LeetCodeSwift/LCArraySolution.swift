@@ -11,8 +11,9 @@ class LCArraySolution {
     /**
      删除排序数组中的重复项
      给你一个有序数组 nums ，请你 原地 删除重复出现的元素，使每个元素 只出现一次 ，返回删除后数组的新长度。
-
+     
      不要使用额外的数组空间，你必须在 原地 修改输入数组 并在使用 O(1) 额外空间的条件下完成。
+     不需要考虑数组中超出新长度后面的元素。
      */
     
     static func removeDuplicates(_ nums: inout[Int]) -> Int {
@@ -36,4 +37,19 @@ class LCArraySolution {
         return left + 1
     }
     
+    static func removeDuplicatesOne(_ nums: inout[Int]) -> Int {
+        if nums.count == 0 {
+            return 0
+        }
+        let n = nums.count
+        for i: Int in 0 ..< n - 1 {
+            let tmp = nums[n - i - 1]
+            let tmp1 = nums[n - i - 1 - 1]
+            if tmp == tmp1 {
+                nums.remove(at: n - i - 1)
+            }
+        }
+      
+        return nums.count
+    }
 }

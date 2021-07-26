@@ -12,13 +12,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-//        sort()
-        
-       list()
-        
+        lcArray()
     }
     
+    func lcArray() -> Void {
+
+        var array = [0,1,1,1,2,3,4,5,6,7,8,9,9]
+    
+        let length = LCArraySolution.removeDuplicates(&array)
+        
+        print("删除后的数组长度是",length)
+    }
    
     func sort() {
         let dataArray = [3,44,38,5,47,15,36,26,27,2,46,4,19,50,48]
@@ -31,10 +35,10 @@ class ViewController: UIViewController {
     }
     
     func list() {
-        let endNode = ListNode.init(5)
-        let fourNode = ListNode.init(4)
+        let endNode = ListNode.init(0)
+        let fourNode = ListNode.init(1)
         fourNode.next = endNode
-        let threeNode = ListNode.init(3)
+        let threeNode = ListNode.init(2)
         threeNode.next = fourNode
         let secondNode = ListNode.init(2)
         secondNode.next = threeNode
@@ -43,15 +47,17 @@ class ViewController: UIViewController {
         let headNode = ListNode.init(0)
         headNode.next = firstNode
 
-        let node =
-        ListSolution.reverseListTwo(headNode)
-
-        print(node as Any)
+//        let node =
+//        ListSolution.reverseListTwo(headNode)
+//
+//        print(node as Any)
+//
+//        let nodeOne =
+//        ListSolution.reverseListOne(node)
+//
+//        print(nodeOne as Any)
         
-        let nodeOne =
-        ListSolution.reverseListOne(node)
-        
-        print(nodeOne as Any)
+        print(LCListSolution.isPalindromeOne(headNode))
     }
 }
 

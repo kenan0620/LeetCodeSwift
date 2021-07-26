@@ -14,7 +14,8 @@
 		277EE00B26A6C7CA00B280EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 277EE00A26A6C7CA00B280EB /* Assets.xcassets */; };
 		277EE00E26A6C7CA00B280EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 277EE00C26A6C7CA00B280EB /* LaunchScreen.storyboard */; };
 		277EE01826A6CB6A00B280EB /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277EE01726A6CB6A00B280EB /* Sort.swift */; };
-		277EE01E26A9150900B280EB /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277EE01D26A9150900B280EB /* List.swift */; };
+		27BF487626AE7A850060D910 /* LCListSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BF487526AE7A850060D910 /* LCListSolution.swift */; };
+		27BF487C26AE7B190060D910 /* LCArraySolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BF487B26AE7B190060D910 /* LCArraySolution.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +28,8 @@
 		277EE00D26A6C7CA00B280EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		277EE00F26A6C7CA00B280EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		277EE01726A6CB6A00B280EB /* Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
-		277EE01D26A9150900B280EB /* List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
+		27BF487526AE7A850060D910 /* LCListSolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCListSolution.swift; sourceTree = "<group>"; };
+		27BF487B26AE7B190060D910 /* LCArraySolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCArraySolution.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +65,9 @@
 				277EE00126A6C7BF00B280EB /* AppDelegate.swift */,
 				277EE00326A6C7BF00B280EB /* SceneDelegate.swift */,
 				277EE00526A6C7BF00B280EB /* ViewController.swift */,
+				27BF487B26AE7B190060D910 /* LCArraySolution.swift */,
+				27BF487526AE7A850060D910 /* LCListSolution.swift */,
 				277EE01726A6CB6A00B280EB /* Sort.swift */,
-				277EE01D26A9150900B280EB /* List.swift */,
 				277EE00726A6C7BF00B280EB /* Main.storyboard */,
 				277EE00A26A6C7CA00B280EB /* Assets.xcassets */,
 				277EE00C26A6C7CA00B280EB /* LaunchScreen.storyboard */,
@@ -146,8 +149,9 @@
 				277EE00626A6C7BF00B280EB /* ViewController.swift in Sources */,
 				277EE01826A6CB6A00B280EB /* Sort.swift in Sources */,
 				277EE00226A6C7BF00B280EB /* AppDelegate.swift in Sources */,
-				277EE01E26A9150900B280EB /* List.swift in Sources */,
 				277EE00426A6C7BF00B280EB /* SceneDelegate.swift in Sources */,
+				27BF487626AE7A850060D910 /* LCListSolution.swift in Sources */,
+				27BF487C26AE7B190060D910 /* LCArraySolution.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -104,14 +104,20 @@ class LCArraySolution {
     }
     
     static func rotateTwo(_ nums: inout [Int], _ k: Int) {
-//        [1,8,5,9,2,6,4,3,1,7]
         if k == 0 || nums.count <= 1{
             return
         }
-        
-        
-        print(nums)
+        /// 旋转整个数组
+        nums.reverse()
+        /// 获取旋转点
+        let length =  k % nums.count
+        /// 旋转旋转点前的,这样数据就双旋回正
+        nums[0 ..< length].reverse()
+        /// 旋转旋转点后到,数据双旋回正
+        nums[length ..< nums.count].reverse()
     }
+    
+    
 }
 
 

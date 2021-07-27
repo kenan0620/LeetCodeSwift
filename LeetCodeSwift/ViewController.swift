@@ -17,11 +17,19 @@ class ViewController: UIViewController {
     
     func lcArray() -> Void {
 
-        var array = [0,1,1,1,2,3,4,5,6,7,8,9,9]
-    
-        let length = LCArraySolution.removeDuplicates(&array)
+//        var duplicatesArray = [0,1,1,1,2,3,4,5,6,7,8,9,9]
+//
+//        let length = LCArraySolution.removeDuplicates(&duplicatesArray)
+//
+//        print("删除后的数组长度是",length)
         
-        print("删除后的数组长度是",length)
+        let maxProfitArray = [1,8,5,9,2,6,4,3,1,7]
+
+        let length = LCArraySolution.maxProfit(maxProfitArray)
+
+        print("最大获益是",length)
+        
+        
     }
    
     func sort() {

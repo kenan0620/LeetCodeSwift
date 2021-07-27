@@ -78,6 +78,40 @@ class LCArraySolution {
         
         return max
     }
+    
+    /**
+     旋转数组
+     
+     给定一个数组，将数组中的元素向右移动 k 个位置，其中 k 是非负数。
+
+     进阶：
+     尽可能想出更多的解决方案，至少有三种不同的方法可以解决这个问题。
+     你可以使用空间复杂度为 O(1) 的 原地 算法解决这个问题吗？
+     
+     要点: 数学、数组、双指针
+
+     */
+    static func rotateOne(_ nums: inout [Int], _ k: Int) {
+        if k == 0 || nums.count <= 1{
+            return
+        }
+        var arrar = nums
+        // 采用新数组去承接,然后求余位置,赋值到新数组
+        for i in 0 ..< nums.count {
+            arrar[(i + k) % nums.count] = nums[i]
+        }
+        nums = arrar
+    }
+    
+    static func rotateTwo(_ nums: inout [Int], _ k: Int) {
+//        [1,8,5,9,2,6,4,3,1,7]
+        if k == 0 || nums.count <= 1{
+            return
+        }
+        
+        
+        print(nums)
+    }
 }
 
 

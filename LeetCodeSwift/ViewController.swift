@@ -23,11 +23,16 @@ class ViewController: UIViewController {
 //
 //        print("删除后的数组长度是",length)
         
-        let maxProfitArray = [1,8,5,9,2,6,4,3,1,7]
+//        let maxProfitArray = [1,8,5,9,2,6,4,3,1,7]
+//
+//        let length = LCArraySolution.maxProfit(maxProfitArray)
+//
+//        print("最大获益是",length)
+        
+        var rotateArray = [1,8,5,9,2,6,4,3,1,7]
 
-        let length = LCArraySolution.maxProfit(maxProfitArray)
+         LCArraySolution.rotateTwo(&rotateArray, 2)
 
-        print("最大获益是",length)
         
         
     }

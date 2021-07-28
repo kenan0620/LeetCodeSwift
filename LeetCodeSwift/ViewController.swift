@@ -29,11 +29,16 @@ class ViewController: UIViewController {
 //
 //        print("最大获益是",length)
         
-        var rotateArray = [1,8,5,9,2,6,4,3,1,7]
-
-         LCArraySolution.rotateFive(&rotateArray, 5)
-
+//        var rotateArray = [1,8,5,9,2,6,4,3,1,7]
+//
+//         LCArraySolution.rotateFive(&rotateArray, 5)
         
+        let rotateArray = [1,8,5,9,2,6,4,3,8,7]
+
+        let result =
+        LCArraySolution.containsDuplicateTwo(rotateArray)
+
+        print(result ? "存在": "不存在")
     }
    
     func sort() {

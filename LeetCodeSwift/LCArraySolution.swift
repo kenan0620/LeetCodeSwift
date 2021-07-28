@@ -189,4 +189,53 @@ class LCArraySolution {
         a = b
         b = tmp
     }
+    
+    /**
+     存在重复元素
+     给定一个整数数组，判断是否存在重复元素。
+     如果存在一值在数组中出现至少两次，函数返回 true 。如果数组中每个元素都不相同，则返回 false 。
+     
+     要点: 哈希表、数组、排序
+     */
+    static func containsDuplicate(_ nums: [Int]) -> Bool {
+        /**
+         时间复杂度：O(N)，其中 NN 为数组的长度。
+         
+         空间复杂度：O(N)，其中 NN 为数组的长度。
+         */
+        if nums.count < 2 {
+            return false
+        }
+        // 不要用数组,因为数组没有字典效率高,会超时
+        var dic: [Int: Int] = [:]
+        for item in nums {
+            let value = dic[item]
+            if value != nil {
+                return true
+            }
+            dic.updateValue(item, forKey: item)
+        }
+        
+        return false
+    }
+    
+    static func containsDuplicateTwo(_ nums: [Int]) -> Bool {
+        if nums.count < 2 {
+            return false
+        }
+        /**
+         时间复杂度：O(N log N)，其中 N 为数组的长度。需要对数组进行排序。
+         
+         空间复杂度：O(log N)，其中 N 为数组的长度。注意我们在这里应当考虑递归调用栈的深度。
+         */
+        
+        let array = nums.sorted()
+        for i in 0 ..< array.count - 1 {
+            if array[i] == array [i + 1] {
+                return true
+            }
+        }
+        
+        return false
+    }
 }

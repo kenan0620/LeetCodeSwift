@@ -33,12 +33,19 @@ class ViewController: UIViewController {
 //
 //         LCArraySolution.rotateFive(&rotateArray, 5)
         
-        let rotateArray = [1,8,5,9,2,6,4,3,8,7]
+        
+        
+//        let containsDuplicateArray = [1,8,5,9,2,6,4,3,8,7]
+//
+//        let result =
+//        LCArraySolution.containsDuplicateTwo(containsDuplicateArray)
+//
+//        print(result ? "存在": "不存在")
+        
+        let array = [1,1,2,2,3,4,4,5,6,5,6,7,8,9,8,9,7]
 
-        let result =
-        LCArraySolution.containsDuplicateTwo(rotateArray)
-
-        print(result ? "存在": "不存在")
+       let num = LCArraySolution.singleNumber(array)
+        print(num)
     }
    
     func sort() {

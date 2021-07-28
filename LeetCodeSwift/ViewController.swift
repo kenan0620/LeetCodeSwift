@@ -31,9 +31,8 @@ class ViewController: UIViewController {
         
         var rotateArray = [1,8,5,9,2,6,4,3,1,7]
 
-         LCArraySolution.rotateTwo(&rotateArray, 2)
+         LCArraySolution.rotateFive(&rotateArray, 5)
 
-        
         
     }
    

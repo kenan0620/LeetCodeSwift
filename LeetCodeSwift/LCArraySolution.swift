@@ -47,6 +47,7 @@ class LCArraySolution {
         for i: Int in 0 ..< n - 1 {
             let tmp = nums[n - i - 1]
             let tmp1 = nums[n - i - 1 - 1]
+            // 如果两个数相等,则删除第一个
             if tmp == tmp1 {
                 nums.remove(at: n - i - 1)
             }
@@ -71,6 +72,7 @@ class LCArraySolution {
         var max = 0
         
         for i in 0 ..< prices.count - 1 {
+            // 如果后一天比前一天价高,我就认为我持有收益
             if prices[i] < prices[i + 1] {
                 max = max + prices[i + 1] - prices[i]
             }
@@ -83,13 +85,13 @@ class LCArraySolution {
      旋转数组
      
      给定一个数组，将数组中的元素向右移动 k 个位置，其中 k 是非负数。
-
+     
      进阶：
      尽可能想出更多的解决方案，至少有三种不同的方法可以解决这个问题。
      你可以使用空间复杂度为 O(1) 的 原地 算法解决这个问题吗？
      
      要点: 数学、数组、双指针
-
+     
      */
     static func rotateOne(_ nums: inout [Int], _ k: Int) {
         if k == 0 || nums.count <= 1{
@@ -117,7 +119,74 @@ class LCArraySolution {
         nums[length ..< nums.count].reverse()
     }
     
+    static func rotateThree(_ nums: inout [Int], _ k: Int) {
+        if k == 0 || nums.count <= 1{
+            return
+        }
+        /// 获取旋转点,然后数组最后的数据依次添加到前面即可
+        for _ in 0 ..< k % nums.count {
+            let value = nums.last
+            nums.insert(value!, at: 0)
+            nums.removeLast()
+        }
+    }
+    /// 环形替换
+    static func rotateFour(_ nums: inout [Int], _ k: Int) {
+        if k == 0 || nums.count <= 1{
+            return
+        }
+        // rotateOne的另一种写法,思路有了,写作代码会有很多种
+        let arrar = Array(nums[(nums.count - k % nums.count) ..< nums.count]) + Array(nums[0 ..< (nums.count - k % nums.count)])
+        nums = arrar
+    }
     
+    static func rotateFive(_ nums: inout [Int], _ k: Int) {
+        if k == 0 || nums.count <= 1{
+            return
+        }
+        // 获取需要循环的次数
+        let count = gcd(k, nums.count)
+        
+        for i in 0 ..< count {
+            // 获取当前索引
+            var current = i
+            // 获取当前索引的值
+            var prev = nums[i]
+            repeat{
+                // 获取旋转后的位置
+                let next = (current + k) % nums.count
+                // 交换位置
+                swap(&nums[next], &prev)
+                current = next
+                
+            }while i != current
+        }
+    }
+    
+    private  static func gcd(_ a :Int ,_ b :Int) -> Int {
+        // 最大公约数
+        if a == b {//如果两个数相等.则直接返回
+            return a
+        }
+        let big = max(a, b)
+        let small = min(a, b)
+        
+        var divi = 0
+        for i in 1..<small+1 {//选出两个数中较小的那个数将其分解因数
+            if small % i  == 0{
+                divi = small/i  //分解因子,因为是从1到small遍历.所以i 为较小的那个 ,divi为较大的那个
+                if big%divi == 0{//判断divi能否被较大的那个数整除,如果能则divi是最大公约数
+                    return divi
+                }
+            }
+        }
+        return 1
+    }
+    
+    private static  func swap(_ a: inout Int, _ b: inout Int) -> Void {
+        // 交换数据
+        let tmp = a
+        a = b
+        b = tmp
+    }
 }
-
-

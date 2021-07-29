@@ -491,4 +491,51 @@ class LCArraySolution {
         return array
         
     }
+    
+    /**
+     移动零
+     给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。
+     */
+    static func moveZeroes(_ nums: inout [Int]) {
+        // 从后往前判断,如果有0,则挪到最后,并且删除该位置0
+        for i in 0 ..< nums.count {
+            if nums[nums.count - 1 - i] == 0 {
+                nums.remove(at: nums.count - 1 - i)
+                nums.append(0)
+            }
+        }
+    }
+    static func moveZeroesTwo(_ nums: inout [Int]) {
+        // 双指针,不是0的往前,然后剩下的全0
+        var index = 0
+        
+        for i in 0 ..< nums.count {
+            if nums[i] != 0 {
+                nums[index] = nums[i]
+                index += 1
+            }
+        }
+        
+        for i in index ..< nums.count {
+            nums[i] = 0
+        }
+    }
+    
+    static func moveZeroesThree(_ nums: inout [Int]) {
+        /**
+         双指针,不是0的往前,然后剩下的全0
+         时间36ms, 90.96% 内存14.1MB, 67.8%
+         */
+        
+        var index = 0
+        
+        for i in 0 ..< nums.count {
+            if nums[i] != 0 {
+                let tmp = nums[index]
+                nums[index] = nums[i]
+                nums[i] = tmp
+                index += 1
+            }
+        }
+    }
 }

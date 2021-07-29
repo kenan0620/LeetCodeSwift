@@ -52,11 +52,15 @@ class ViewController: UIViewController {
 //       let num = LCArraySolution.intersectFour(array1, array2)
 //        print(num)
         
-        let array1 = [2,9,9]
-
+//        let array1 = [2,9,9]
 //
-       let num = LCArraySolution.plusOneTwo(array1)
-        print(num)
+//       let num = LCArraySolution.plusOneTwo(array1)
+//        print(num)
+        
+        var array1 = [2,0,0,1,0,9,9]
+
+       LCArraySolution.moveZeroesThree(&array1)
+
     }
    
     func sort() {

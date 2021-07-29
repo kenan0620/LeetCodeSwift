@@ -42,9 +42,20 @@ class ViewController: UIViewController {
 //
 //        print(result ? "存在": "不存在")
         
-        let array = [1,1,2,2,3,4,4,5,6,5,6,7,8,9,8,9,7]
+//        let array = [1,1,2,2,3,4,4,5,6,5,6,7,8,9,8,9,7]
+//
+//       let num = LCArraySolution.singleNumber(array)
+//        print(num)
+        
+//        let array1 = [1,2,3,4,4,4,5,6,7,8,9]
+//        let array2 = [4,4,4,4,6,7,18,19,25,6757,89,23,97,46,67,34,54,889]
+//       let num = LCArraySolution.intersectFour(array1, array2)
+//        print(num)
+        
+        let array1 = [2,9,9]
 
-       let num = LCArraySolution.singleNumber(array)
+//
+       let num = LCArraySolution.plusOneTwo(array1)
         print(num)
     }
    
@@ -83,5 +94,7 @@ class ViewController: UIViewController {
         
         print(LCListSolution.isPalindromeOne(headNode))
     }
+    
+    
 }
 

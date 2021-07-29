@@ -241,7 +241,7 @@ class LCArraySolution {
     /**
      只出现一次的数字
      给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。
-
+     
      说明：
      你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？
      */
@@ -262,6 +262,238 @@ class LCArraySolution {
         
         return num
     }
+    
+    
+    /**
+     两个数组的交集 II
+     
+     给定两个数组，编写一个函数来计算它们的交集。
+     说明：
+     
+     输出结果中每个元素出现的次数，应与元素在两个数组中出现次数的最小值一致。
+     我们可以不考虑输出结果的顺序。
+     进阶：
+     
+     如果给定的数组已经排好序呢？你将如何优化你的算法？
+     如果 nums1 的大小比 nums2 小很多，哪种方法更优？
+     如果 nums2 的元素存储在磁盘上，内存是有限的，并且你不能一次加载所有的元素到内存中，你该怎么办？
+     */
+    static func intersect(_ nums1: [Int], _ nums2: [Int]) -> [Int] {
+        /**
+         常规办法,第一个数组存储结果,第二三个可变数组存储原始数据.然后进行查找,如果存在,则在查找数组中删除.之后继续遍历,直到没有为止.
+         */
+        var array: [Int] = []
+        var array1: [Int] = nums1
+        var array2: [Int] = nums2
+        
+        if nums1.count > nums2.count{
+            for item in array2 {
+                if array1.contains(item) {
+                    array.append(item)
+                    let index = array1.firstIndex(of: item)!
+                    array1.remove(at: index)
+                }
+            }
+        }else{
+            for item in array1 {
+                if array2.contains(item) {
+                    array.append(item)
+                    let index = array2.firstIndex(of: item)!
+                    array2.remove(at: index)
+                }
+            }
+        }
+        
+        return array
+    }
+    
+    static func intersectTwo(_ nums1: [Int], _ nums2: [Int]) -> [Int] {
+        /**
+         先排序,然后找相同元素的区间,直接根据区间个数进行添加,直到结束,常规办法
+         */
+        var array: [Int] = []
+        let array1 = nums1.sorted()
+        let array2 = nums2.sorted()
+        
+        if nums1.count > nums2.count {
+            for item in array2 {
+                if array1.contains(item) && !array.contains(item) {
+                    let array1FirstIndex = array1.firstIndex(of: item)!
+                    let array1LastIndex = array1.lastIndex(of: item)!
+                    let array2FirstIndex = array2.firstIndex(of: item)!
+                    let array2LastIndex = array2.lastIndex(of: item)!
+                    
+                    let intervalArray1 = array1LastIndex - array1FirstIndex
+                    let intervalArray2 = array2LastIndex - array2FirstIndex
+                    array.append(item)
+                    
+                    if intervalArray1 > intervalArray2  {
+                        for _ in 0 ..< intervalArray2 {
+                            array.append(item)
+                        }
+                    }else{
+                        for _ in 0 ..< intervalArray1 {
+                            array.append(item)
+                        }
+                    }
+                }
+            }
+        }else{
+            for item in array1 {
+                if array2.contains(item) && !array.contains(item) {
+                    let array1FirstIndex = array1.firstIndex(of: item)!
+                    let array1LastIndex = array1.lastIndex(of: item)!
+                    let array2FirstIndex = array2.firstIndex(of: item)!
+                    let array2LastIndex = array2.lastIndex(of: item)!
+                    
+                    let intervalArray1 = array1LastIndex - array1FirstIndex
+                    let intervalArray2 = array2LastIndex - array2FirstIndex
+                    array.append(item)
+                    
+                    if intervalArray1 > intervalArray2  {
+                        for _ in 0 ..< intervalArray2 {
+                            array.append(item)
+                        }
+                    }else{
+                        for _ in 0 ..< intervalArray1 {
+                            array.append(item)
+                        }
+                    }
+                }
+            }
+        }
+        return array
+    }
+    
+    static func intersectThree(_ nums1: [Int], _ nums2: [Int]) -> [Int] {
+        /**
+         遍历较短数组,然后存储该值和出现次数,再遍历长数组,存在该值则存储到返回数组,并哈希存储该值减一,
+         时间16ms, 100% 内存13.7MB, 78.57%
+         时间复杂度 M+N,空间复杂度Min(M,N)
+         */
+        var array: [Int] = []
+        var map: [Int: Int] = [:]
+        if nums1.count > nums2.count{
+            for item in nums2 {
+                if map[item] == nil {
+                    map.updateValue(1, forKey: item)
+                }else{
+                    map.updateValue(map[item]! + 1, forKey: item)
+                }
+            }
+            for item in nums1 {
+                if map[item] != nil && map[item]! > 0 {
+                    array.append(item)
+                    map.updateValue(map[item]! - 1, forKey: item)
+                }
+            }
+        }else{
+            for item in nums1 {
+                if map[item] == nil {
+                    map.updateValue(1, forKey: item)
+                }else{
+                    map.updateValue(map[item]! + 1, forKey: item)
+                }
+            }
+            for item in nums2 {
+                if map[item] != nil && map[item]! > 0 {
+                    array.append(item)
+                    map.updateValue(map[item]! - 1, forKey: item)
+                }
+            }
+        }
+        
+        return array
+    }
+    
+    static func intersectFour(_ nums1: [Int], _ nums2: [Int]) -> [Int] {
+        /**
+         双指针方式
+         时间32ms, 58.67% 内存13.9MB, 35.2%
+         总时间复杂度 O(mlogm + n logn),排序时间是O(mlogm + n logn)遍历是O(M + N),空间复杂度Min(M,N)
+         */
+        var array: [Int] = []
+        let array1 = nums1.sorted()
+        let array2 = nums2.sorted()
+        
+        var i = 0
+        var j = 0
+        while i != nums1.count && j != nums2.count {
+            if array1[i] == array2[j] {
+                array.append(array1[i])
+                i += 1
+                j += 1
+            }else if array1[i] > array2[j]{
+                j += 1
+            }else{
+                i += 1
+            }
+        }
+        return array
+    }
+    
+    /**
+     加一
+     给定一个由 整数 组成的 非空 数组所表示的非负整数，在该数的基础上加一。
+
+     最高位数字存放在数组的首位， 数组中每个元素只存储单个数字。
+
+     你可以假设除了整数 0 之外，这个整数不会以零开头。
+
+     */
+    static func plusOne(_ digits: [Int]) -> [Int] {
+        /**
+         先定义变量是否进一,然后根据当前值判断是否继续进一,如果进一,则加0,不进一则直接加.对首位和末尾做判断处理
+         */
+        var array: [Int] = []
+        var isAdd: Bool = (digits.last! == 9)
+
+        for i in 0 ..< digits.count {
+            let tmp = digits[digits.count - 1 - i]
+            if isAdd {
+                array.insert((tmp + 1) % 10, at: 0)
+                isAdd = (tmp + 1) > 9
+                if isAdd && i == digits.count - 1{
+                    array.insert(1, at: 0)
+                }
+            }else{
+                if i != 0 {
+                    array.insert(tmp, at: 0)
+                }else{
+                    array.insert(tmp + 1, at: 0)
+                }
+            }
+        }
+
+        return array
+        
+    }
+    
+    static func plusOneTwo(_ digits: [Int]) -> [Int] {
+        /**
+         先定义可变数组,然后判断是否为9,如果是则该数据为0,继续循环,不是则加1返回.如果全部为9则在返回前加一.
+         
+         时间0ms, 100% 内存13.8MB, 20.2%
+
+         */
+        var array: [Int] = digits
+        
+        for i in 0 ..< digits.count {
+            if array[digits.count - 1 - i] == 9 {
+                array[digits.count - 1 - i] = 0
+            }else{
+                array[digits.count - 1 - i] += 1
+                return array
+            }
+        }
+        
+        array.insert(1, at: 0)
+        return array
+        
+    }
 }
+
+
+
 
 

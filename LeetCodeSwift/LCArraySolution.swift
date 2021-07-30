@@ -617,4 +617,43 @@ class LCArraySolution {
         return true
     }
     
+    /**
+     旋转图像
+     给定一个 n × n 的二维矩阵 matrix 表示一个图像。请你将图像顺时针旋转 90 度。
+     
+     你必须在 原地 旋转图像，这意味着你需要直接修改输入的二维矩阵。请不要 使用另一个矩阵来旋转图像。
+     */
+    static func rotate(_ matrix: inout [[Int]]) {
+        for i in 0 ..< matrix.count/2 {
+            let tmp = matrix[i]
+            matrix[i] = matrix[matrix.count - 1 - i]
+            matrix[matrix.count - 1 - i] = tmp
+        }
+                
+        for i in 0 ..< matrix.count {
+            for  j in i + 1 ..< matrix[i].count {
+                let tmp = matrix[i][j]
+                matrix[i][j] = matrix[j][i]
+                matrix[j][i] = tmp
+            }
+        }
+    }
+    
+    static func rotateTwo(_ matrix: inout [[Int]]) {
+        for i in 0 ..< matrix.count/2 {
+            let tmp = matrix[i]
+            matrix[i] = matrix[matrix.count - 1 - i]
+            matrix[matrix.count - 1 - i] = tmp
+        }
+                
+        for i in 0 ..< matrix.count {
+            for  j in i + 1 ..< matrix[i].count {
+                let tmp = matrix[i][j]
+                matrix[i][j] = matrix[j][i]
+                matrix[j][i] = tmp
+            }
+        }
+    }
 }
+
+

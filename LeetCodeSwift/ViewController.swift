@@ -57,10 +57,48 @@ class ViewController: UIViewController {
 //       let num = LCArraySolution.plusOneTwo(array1)
 //        print(num)
         
-        var array1 = [2,0,0,1,0,9,9]
+//        var array1 = [2,0,0,1,0,9,9]
+//
+//       LCArraySolution.moveZeroesThree(&array1)
+        
+//        var arr1 = [1,34,6,89,9,3,66]
+//        var arr2 = [11,34,6,89,9,3]
+//
+//        let num = sumOneH(&arr1, &arr2)
+//        print(num)
+        
+        let array = [2,7,11,15]
+        let num = LCArraySolution.twoSumTwo(array,23)
+        print(num)
+        
+        
+    }
+    
+    func sumOneH(_ nums: inout [Int], _ nums2: inout [Int]) -> [(Int, Int)] {
+        nums.sort()
+        nums2.sort()
+        
+        var array: [(Int, Int)] = []
+        
+        var index: Int = 0
+        var index1: Int = nums2.count
+        
+        if nums.last! + nums2.last! < 100{
+            return []
+        }
 
-       LCArraySolution.moveZeroesThree(&array1)
-
+        while index < nums.count {
+            print(index)
+            if nums2.contains(100 - nums[index]) {
+                array.append((nums[index], 100 - nums[index]))
+                index += 1
+            }else{
+                index += 1
+            }
+        }
+        print(nums,nums2)
+        
+        return array
     }
    
     func sort() {

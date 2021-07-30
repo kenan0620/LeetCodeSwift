@@ -547,7 +547,6 @@ class LCArraySolution {
      
      你可以按任意顺序返回答案。
      */
-    
     static func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
         // 不能采用数组查找,因为数据量大的时候,会超时.哈希查找
         var dic: [Int : Int] = [:]
@@ -559,6 +558,63 @@ class LCArraySolution {
             }
         }
         return []
+    }
+    
+    /**
+     有效的数独
+     
+     请你判断一个 9x9 的数独是否有效。只需要 根据以下规则 ，验证已经填入的数字是否有效即可。
+     
+     数字 1-9 在每一行只能出现一次。
+     数字 1-9 在每一列只能出现一次。
+     数字 1-9 在每一个以粗实线分隔的 3x3 宫内只能出现一次。（请参考示例图）
+     数独部分空格内已填入了数字，空白格用 '.' 表示。
+     注意：
+     一个有效的数独（部分已被填充）不一定是可解的。
+     只需要根据以上规则，验证已经填入的数字是否有效即可。
+     */
+    static func isValidSudoku(_ board: [[Character]]) -> Bool {
+        
+        var rowDict: [Int:[Character:Int]] = [:]
+        var columnDict: [Int:[Character:Int]] = [:]
+        var boxDict: [Int:[Character:Int]] = [:]
+        for i in (0..<9) {
+            for j in (0..<9) {
+                let c = board[i][j]
+                if c == "." {
+                    continue
+                }
+                if rowDict[i] == nil {
+                    rowDict[i] = [:]
+                }
+                if rowDict[i]![c] != nil {
+                    return false
+                }else{
+                    rowDict[i]![c] = 1
+                }
+                
+                if columnDict[j] == nil {
+                    columnDict[j] = [:]
+                }
+                if columnDict[j]![c] != nil {
+                    return false
+                }else{
+                    columnDict[j]![c] = 1
+                }
+                
+                let bIndex = i / 3 * 3 + j / 3
+                if boxDict[bIndex] == nil {
+                    boxDict[bIndex] = [:]
+                }
+                if boxDict[bIndex]![c] != nil {
+                    return false
+                }else {
+                    boxDict[bIndex]![c] = 1
+                }
+            }
+        }
+        
+        return true
     }
     
 }

@@ -624,22 +624,23 @@ class LCArraySolution {
      你必须在 原地 旋转图像，这意味着你需要直接修改输入的二维矩阵。请不要 使用另一个矩阵来旋转图像。
      */
     static func rotate(_ matrix: inout [[Int]]) {
-        for i in 0 ..< matrix.count/2 {
-            let tmp = matrix[i]
-            matrix[i] = matrix[matrix.count - 1 - i]
-            matrix[matrix.count - 1 - i] = tmp
-        }
-                
-        for i in 0 ..< matrix.count {
-            for  j in i + 1 ..< matrix[i].count {
+        // 原地旋转
+        let length = matrix.count
+        for i in 0 ..< length/2 {
+            for j in 0 ..< (length + 1 )/2 {
                 let tmp = matrix[i][j]
-                matrix[i][j] = matrix[j][i]
-                matrix[j][i] = tmp
+                matrix[i][j] = matrix[length - j - 1][i]
+                matrix[length - j - 1][i] = matrix[length - i - 1][length - j - 1]
+                matrix[length - i - 1][length - j - 1] = matrix[j][length - i - 1]
+                matrix[j][length - i - 1] = tmp
             }
         }
+        
+        print(matrix)
     }
     
     static func rotateTwo(_ matrix: inout [[Int]]) {
+        // 先上下换,再对角线交换
         for i in 0 ..< matrix.count/2 {
             let tmp = matrix[i]
             matrix[i] = matrix[matrix.count - 1 - i]

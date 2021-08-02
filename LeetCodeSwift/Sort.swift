@@ -20,8 +20,8 @@ import Foundation
  */
 func bubbleSort(array: Array<Int>) -> Array<Int> {
     var sortArray = array
-    for i in 0 ..< array.count {
-        for j in 0 ..< array.count - i - 1 {
+    for i in 0 ..< sortArray.count {
+        for j in 0 ..< sortArray.count - i - 1 {
             if sortArray[j] > sortArray[j + 1] {
                 let tempValue = sortArray[j]
                 sortArray[j] = sortArray[j + 1]

@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        lcArray()
+        sort()
     }
     
     func lcArray() -> Void {
@@ -85,9 +85,9 @@ class ViewController: UIViewController {
 //
 //        print(num ? "是数独": "不是数独")
         
-        var array = [[1,2,3],[4,5,6],[7,8,9]]
+//        var array = [[1,2,3],[4,5,6],[7,8,9]]
         
-        LCArraySolution.rotate(&array)
+//        LCArraySolution.rotate(&array)
     }
     
     func sumOneH(_ nums: inout [Int], _ nums2: inout [Int]) -> [(Int, Int)] {
@@ -118,12 +118,12 @@ class ViewController: UIViewController {
     }
     
     func sort() {
-        let dataArray = [3,44,38,5,47,15,36,26,27,2,46,4,19,50,48]
+        var dataArray = [3,44,38,5,47,15,36,26,27,2,46,4,19,50,48]
         
-        print("冒泡排序", bubbleSort(array: dataArray))
-        print("选择排序", selectionSort(array: dataArray))
-        print("插入排序", insertionSort(array: dataArray))
-        print("快速排序", quickSort(array: dataArray))
+        print("冒泡排序", AlgorithmSort.bubbleSort(array: &dataArray))
+//        print("选择排序", selectionSort(array: dataArray))
+//        print("插入排序", insertionSort(array: dataArray))
+//        print("快速排序", quickSort(array: dataArray))
         
     }
     

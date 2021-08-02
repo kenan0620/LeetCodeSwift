@@ -118,9 +118,9 @@ class ViewController: UIViewController {
     }
     
     func sort() {
-        var dataArray = [3,44,38,5,47,15,36,26,27,2,46,4,19,50,48]
-        
-        print("冒泡排序", AlgorithmSort.bubbleSort(array: &dataArray))
+//        var nums = [3,44,38,5,47,15,36,26,27,2,46,4,19,50,48]
+        var nums = [1,2,4,5,7,9,10,34,44,56]
+        print("冒泡排序", AlgorithmSort.bubbleSortOptimize(nums: &nums))
 //        print("选择排序", selectionSort(array: dataArray))
 //        print("插入排序", insertionSort(array: dataArray))
 //        print("快速排序", quickSort(array: dataArray))

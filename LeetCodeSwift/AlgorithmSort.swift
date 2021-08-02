@@ -9,15 +9,37 @@ import Foundation
 
 class AlgorithmSort {
     
-    static func bubbleSort(array: inout [Int]){
-        for i in 0 ..< array.count {
-            for j in 0 ..< array.count - 1 - i {
-                if array[j] > array[j + 1] {
-                    let tmp = array[j]
-                    array[j] = array[j + 1]
-                    array[j + 1] = tmp
+    // 冒泡排序
+    static func bubbleSort(nums: inout [Int]){
+        for i in 0 ..< nums.count {
+            for j in 0 ..< nums.count - 1 - i {
+                if nums[j] > nums[j + 1] {
+                    // 系统交换方法
+                    nums.swapAt(j, j + 1)
                 }
             }
         }
     }
+    // 冒泡排序优化
+    static func bubbleSortOptimize(nums: inout [Int]){
+        // 设置交换标志位
+        var flag: Bool
+        for i in 0 ..< nums.count {
+            flag = false
+            for j in 0 ..< nums.count - 1 - i {
+                if nums[j] > nums[j + 1] {
+                    nums.swapAt(j, j + 1)
+                    // 如果发生交换则标志位为true
+                    flag = true
+                }
+            }
+            if !flag {
+                break
+            }
+        }
+    }
 }
+
+
+
+

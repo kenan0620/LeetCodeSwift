@@ -74,6 +74,26 @@ class AlgorithmSort {
             }
         }
     }
+    
+    // 希尔排序 - 插入排序
+    static func shellSort(nums: inout [Int]){
+        // 设置增量
+        var increment = nums.count / 2
+        
+        while increment > 0 {
+            for i in increment ..< nums.count {
+                var leftIndex = i - increment// 找到增量位置和增量对应位置的索引
+                while leftIndex >= 0 {
+                    if nums[leftIndex] > nums[leftIndex+increment] {
+                        // 如果对应位置数大,则交换
+                        nums.swapAt(leftIndex, leftIndex+increment)
+                    }
+                    leftIndex -= increment
+                }
+            }
+            increment = increment / 2
+        }
+    }
 }
 
 

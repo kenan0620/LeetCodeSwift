@@ -123,7 +123,8 @@ class ViewController: UIViewController {
 //        print("冒泡排序", AlgorithmSort.bubbleSortOptimize(nums: &nums))
 //        print("选择排序", selectionSort(array: dataArray))
 //        print("插入排序", insertionSort(array: dataArray))
-        print("快速排序", AlgorithmSort.quickSort(nums: &nums, low: 0, high: nums.count - 1))
+        AlgorithmSort.quickSort(nums: &nums, low: 0, high: nums.count - 1)
+//        print("快速排序", AlgorithmSort.quickSort(nums: &nums, low: 0, high: nums.count - 1))
         
     }
     

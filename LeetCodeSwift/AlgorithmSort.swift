@@ -63,6 +63,17 @@ class AlgorithmSort {
         quickSort(nums: &nums, low: low, high: i - 1)// 左递归
         quickSort(nums: &nums, low: i + 1, high: high)// 右递归
     }
+    
+    // 插入排序 - 插入排序
+    static func insertionSort(nums: inout [Int]){
+        for i in 0 ..< nums.count {
+            for j in 0 ..< i {//将i插入到i-1中
+                if nums[i] < nums[j]{
+                    nums.swapAt(i, j)//交换,j的位置一直在变
+                }
+            }
+        }
+    }
 }
 
 

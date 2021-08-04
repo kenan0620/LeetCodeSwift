@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        sort()
+        lcString()
     }
     
     func lcArray() -> Void {
@@ -118,15 +118,21 @@ class ViewController: UIViewController {
     }
     
     func sort() {
-        var nums = [3,44,38,5,47,15,36,26,27,2,46,4,19,50,48]
+        var nums = [10, 20, 45, 50, 15, 25, 35, 40, 30,]
 //        var nums = [1,2,4,5,7,9,10,34,44,56]
 //        print("冒泡排序", AlgorithmSort.bubbleSortOptimize(nums: &nums))
-//        print("选择排序", selectionSort(array: dataArray))
+//        print("选择排序", AlgorithmSort.selectionSort(nums: &nums))
 //        print("插入排序", AlgorithmSort.insertionSort(nums: &nums))
 //        AlgorithmSort.quickSort(nums: &nums, low: 0, high: nums.count - 1)
 //        print("快速排序", AlgorithmSort.quickSort(nums: &nums, low: 0, high: nums.count - 1))
-        print("希尔排序", AlgorithmSort.shellSort(nums: &nums))
-
+//        print("希尔排序", AlgorithmSort.shellSort(nums: &nums))
+        print("堆排序", AlgorithmSort.heapSort(nums: &nums))
+        
+    }
+    
+    func lcString() {
+        var chars: [Character] = ["1","2","s","g","#","&","d","m","i"]
+        LCStringSolution.reverseString(&chars)
         
     }
     

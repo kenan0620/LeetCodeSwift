@@ -94,9 +94,56 @@ class AlgorithmSort {
             increment = increment / 2
         }
     }
+    
+    // 选择排序 - 选择排序
+    static func selectionSort(nums: inout [Int]){
+        var minIndex: Int// 先找最小的进行交换排序
+        for i in 0 ..< nums.count - 1 {
+            minIndex = i
+            for j in i + 1 ..< nums.count{
+                // 循环遍历未排序的数据,找出最小值
+                if nums[minIndex] > nums[j] {
+                    minIndex = j
+                }
+            }
+            nums.swapAt(i, minIndex)//交换最小值和当前值
+        }
+    }
+    
+    // 堆排序 - 选择排序
+    static func heapSort(nums: inout [Int]){
+        for i in (0 ..< nums.count / 2 ).reversed(){
+            heapAdjust(array: &nums, parent: i, length: nums.count)
+        }
+        print(nums)
+
+        for j in (1 ..< nums.count).reversed() {
+            nums.swapAt(0, j)
+            heapAdjust(array: &nums, parent: 0, length: j)
+        }
+        
+        print(nums)
+    }
+    
+    static private func heapAdjust(array:inout [Int], parent:Int,length:Int) {
+        var parentIndex = parent
+        let temp = array[parentIndex]
+        var child = 2*parentIndex+1//2n+1:左孩子,2n+2:右孩子
+        //把最小的数据放在大于孩子节点的位置
+        while child<length {
+            //取左右孩子节点的最大节点
+            if child+1<length && array[child]<array[child+1]{
+                child += 1
+            }
+            if temp>array[child]{//父节点大于左右孩子节点
+                break
+            }
+            array[parentIndex] = array[child]
+            parentIndex = child
+            
+            child = 2*child+1
+        }
+        array[parentIndex] = temp
+    }
+        
 }
-
-
-
-
-

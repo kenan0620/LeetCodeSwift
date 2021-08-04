@@ -8,19 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		275544F026B79997002D479D /* AlgorithmSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275544EF26B79997002D479D /* AlgorithmSort.swift */; };
+		275544F326BA467D002D479D /* LCStringSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275544F226BA467D002D479D /* LCStringSolution.swift */; };
 		277EE00226A6C7BF00B280EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277EE00126A6C7BF00B280EB /* AppDelegate.swift */; };
 		277EE00426A6C7BF00B280EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277EE00326A6C7BF00B280EB /* SceneDelegate.swift */; };
 		277EE00626A6C7BF00B280EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277EE00526A6C7BF00B280EB /* ViewController.swift */; };
 		277EE00926A6C7BF00B280EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 277EE00726A6C7BF00B280EB /* Main.storyboard */; };
 		277EE00B26A6C7CA00B280EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 277EE00A26A6C7CA00B280EB /* Assets.xcassets */; };
 		277EE00E26A6C7CA00B280EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 277EE00C26A6C7CA00B280EB /* LaunchScreen.storyboard */; };
-		277EE01826A6CB6A00B280EB /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277EE01726A6CB6A00B280EB /* Sort.swift */; };
 		27BF487626AE7A850060D910 /* LCListSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BF487526AE7A850060D910 /* LCListSolution.swift */; };
 		27BF487C26AE7B190060D910 /* LCArraySolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BF487B26AE7B190060D910 /* LCArraySolution.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		275544EF26B79997002D479D /* AlgorithmSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmSort.swift; sourceTree = "<group>"; };
+		275544F226BA467D002D479D /* LCStringSolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCStringSolution.swift; sourceTree = "<group>"; };
 		277EDFFE26A6C7BF00B280EB /* LeetCodeSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeetCodeSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		277EE00126A6C7BF00B280EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		277EE00326A6C7BF00B280EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -29,7 +30,6 @@
 		277EE00A26A6C7CA00B280EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		277EE00D26A6C7CA00B280EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		277EE00F26A6C7CA00B280EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		277EE01726A6CB6A00B280EB /* Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
 		27BF487526AE7A850060D910 /* LCListSolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCListSolution.swift; sourceTree = "<group>"; };
 		27BF487B26AE7B190060D910 /* LCArraySolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCArraySolution.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,8 +69,8 @@
 				277EE00526A6C7BF00B280EB /* ViewController.swift */,
 				27BF487B26AE7B190060D910 /* LCArraySolution.swift */,
 				27BF487526AE7A850060D910 /* LCListSolution.swift */,
+				275544F226BA467D002D479D /* LCStringSolution.swift */,
 				275544EF26B79997002D479D /* AlgorithmSort.swift */,
-				277EE01726A6CB6A00B280EB /* Sort.swift */,
 				277EE00726A6C7BF00B280EB /* Main.storyboard */,
 				277EE00A26A6C7CA00B280EB /* Assets.xcassets */,
 				277EE00C26A6C7CA00B280EB /* LaunchScreen.storyboard */,
@@ -150,9 +150,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				277EE00626A6C7BF00B280EB /* ViewController.swift in Sources */,
-				277EE01826A6CB6A00B280EB /* Sort.swift in Sources */,
 				277EE00226A6C7BF00B280EB /* AppDelegate.swift in Sources */,
 				275544F026B79997002D479D /* AlgorithmSort.swift in Sources */,
+				275544F326BA467D002D479D /* LCStringSolution.swift in Sources */,
 				277EE00426A6C7BF00B280EB /* SceneDelegate.swift in Sources */,
 				27BF487626AE7A850060D910 /* LCListSolution.swift in Sources */,
 				27BF487C26AE7B190060D910 /* LCArraySolution.swift in Sources */,

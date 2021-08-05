@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        lcString()
+        sort()
     }
     
     func lcArray() -> Void {
@@ -131,9 +131,11 @@ class ViewController: UIViewController {
     }
     
     func lcString() {
-        var chars: [Character] = ["1","2","s","g","#","&","d","m","i"]
-        LCStringSolution.reverseString(&chars)
+//        var chars: [Character] = ["1","2","s","g","#","&","d","m","i"]
+//        LCStringSolution.reverseString(&chars)
         
+        let num = LCStringSolution.reverse(12)
+        print(num)
     }
     
     func list() {

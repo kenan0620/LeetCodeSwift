@@ -112,35 +112,37 @@ class AlgorithmSort {
     
     // 堆排序 - 选择排序
     static func heapSort(nums: inout [Int]){
+        // 数据生成堆
         for i in (0 ..< nums.count / 2 ).reversed(){
-            heapAdjust(array: &nums, parent: i, length: nums.count)
+            // 生成堆过程,满足每个父结点大于子结点值,从最底层父结点开始找
+            heapify(array: &nums, parent: i, length: nums.count)
         }
-        print(nums)
-
+        // 堆数据排序
         for j in (1 ..< nums.count).reversed() {
+            // 交换第一个数据和第J个,这样保证最后一个是最大值,然后继续堆生成再交换,直到结束
             nums.swapAt(0, j)
-            heapAdjust(array: &nums, parent: 0, length: j)
+            heapify(array: &nums, parent: 0, length: j)
         }
-        
-        print(nums)
     }
     
-    static private func heapAdjust(array:inout [Int], parent:Int,length:Int) {
+    
+    static private func heapify(array:inout [Int], parent:Int,length:Int) {
         var parentIndex = parent
         let temp = array[parentIndex]
-        var child = 2*parentIndex+1//2n+1:左孩子,2n+2:右孩子
-        //把最小的数据放在大于孩子节点的位置
+        var child = 2*parentIndex+1//2n+1:左孩子,2n+2:右孩子,默认左结点值最大
+        //生成堆
         while child<length {
-            //取左右孩子节点的最大节点
+            //如果有右结点且左结点值小于右结点值则最大值为右结点
             if child+1<length && array[child]<array[child+1]{
                 child += 1
             }
             if temp>array[child]{//父节点大于左右孩子节点
                 break
             }
+            // 父结点值等于最大值
             array[parentIndex] = array[child]
             parentIndex = child
-            
+            // 子结点的左结点
             child = 2*child+1
         }
         array[parentIndex] = temp

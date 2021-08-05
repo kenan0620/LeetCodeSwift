@@ -28,4 +28,16 @@ class LCStringSolution {
             s.swapAt(i, s.count - 1 - i)
         }
     }
+    
+    // 整数反转
+    static func reverse(_ x: Int) -> Int {
+        
+        if x < Int(powl(-2, 31)) || x > Int(powl(2, 31)) - 1 {
+            return 0
+        }
+        print(x,Int(powl(-2, 31)),Int(powl(2, 31)) - 1)
+        
+        
+        return x
+    }
 }

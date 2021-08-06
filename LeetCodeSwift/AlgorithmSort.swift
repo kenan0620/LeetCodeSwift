@@ -147,5 +147,102 @@ class AlgorithmSort {
         }
         array[parentIndex] = temp
     }
+    
+    //归并排序
+    
+    static func mergeSort(_ num: [Int]) -> [Int] {
+        // 跳出递归操作
+        guard num.count > 1 else {
+            return num
+        }
+        let middleIndex = num.count / 2
+        // 不断拆分左数组
+        let leftArray = mergeSort(Array(num[0 ..< middleIndex]))
+        // 不断拆分右数组
+        let rightArray = mergeSort(Array(num[middleIndex ..< num.count]))
+        // 合并排序后的数组
+        return merge(leftArray,rightArray)
+    }
+    // 数组合并
+    static private func merge(_ leftNum: [Int],_ rightNum: [Int]) -> [Int]{
         
+        var leftIndex = 0
+        var rightIndex = 0
+        var result = [Int]()
+        
+        while leftIndex < leftNum.count && rightIndex < rightNum.count {
+            if leftNum[leftIndex] < rightNum[rightIndex] {
+                result.append(leftNum[leftIndex])
+                leftIndex += 1
+            }else if leftNum[leftIndex] > rightNum[rightIndex] {
+                result.append(rightNum[rightIndex])
+                rightIndex += 1
+            }else{
+                result.append(leftNum[leftIndex])
+                leftIndex += 1
+                result.append(rightNum[rightIndex])
+                rightIndex += 1
+            }
+        }
+        
+        while leftIndex < leftNum.count {
+            result.append(leftNum[leftIndex])
+            leftIndex += 1
+        }
+        
+        while rightIndex < rightNum.count {
+            result.append(rightNum[rightIndex])
+            rightIndex += 1
+        }
+        
+        return result
+    }
+    
+}
+func mergeSort(_ num: [Int]) -> [Int] {
+    // 跳出递归操作
+    guard num.count > 1 else {
+        return num
+    }
+    let middleIndex = num.count / 2
+    // 不断拆分左数组
+    let leftArray = mergeSort(Array(num[0 ..< middleIndex]))
+    // 不断拆分右数组
+    let rightArray = mergeSort(Array(num[middleIndex ..< num.count]))
+    // 合并排序后的数组
+    return merge(leftArray,rightArray)
+}
+// 数组合并
+func merge(_ leftNum: [Int],_ rightNum: [Int]) -> [Int]{
+    
+    var leftIndex = 0
+    var rightIndex = 0
+    var result = [Int]()
+    
+    while leftIndex < leftNum.count && rightIndex < rightNum.count {
+        if leftNum[leftIndex] < rightNum[rightIndex] {
+            result.append(leftNum[leftIndex])
+            leftIndex += 1
+        }else if leftNum[leftIndex] > rightNum[rightIndex] {
+            result.append(rightNum[rightIndex])
+            rightIndex += 1
+        }else{
+            result.append(leftNum[leftIndex])
+            leftIndex += 1
+            result.append(rightNum[rightIndex])
+            rightIndex += 1
+        }
+    }
+    
+    while leftIndex < leftNum.count {
+        result.append(leftNum[leftIndex])
+        leftIndex += 1
+    }
+    
+    while rightIndex < rightNum.count {
+        result.append(rightNum[rightIndex])
+        rightIndex += 1
+    }
+    
+    return result
 }

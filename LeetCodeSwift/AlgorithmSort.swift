@@ -198,51 +198,38 @@ class AlgorithmSort {
         return result
     }
     
-}
-func mergeSort(_ num: [Int]) -> [Int] {
-    // 跳出递归操作
-    guard num.count > 1 else {
-        return num
-    }
-    let middleIndex = num.count / 2
-    // 不断拆分左数组
-    let leftArray = mergeSort(Array(num[0 ..< middleIndex]))
-    // 不断拆分右数组
-    let rightArray = mergeSort(Array(num[middleIndex ..< num.count]))
-    // 合并排序后的数组
-    return merge(leftArray,rightArray)
-}
-// 数组合并
-func merge(_ leftNum: [Int],_ rightNum: [Int]) -> [Int]{
-    
-    var leftIndex = 0
-    var rightIndex = 0
-    var result = [Int]()
-    
-    while leftIndex < leftNum.count && rightIndex < rightNum.count {
-        if leftNum[leftIndex] < rightNum[rightIndex] {
-            result.append(leftNum[leftIndex])
-            leftIndex += 1
-        }else if leftNum[leftIndex] > rightNum[rightIndex] {
-            result.append(rightNum[rightIndex])
-            rightIndex += 1
-        }else{
-            result.append(leftNum[leftIndex])
-            leftIndex += 1
-            result.append(rightNum[rightIndex])
-            rightIndex += 1
+    // 计数排序
+    static func countingSort(_ num: [Int]) -> [Int]{
+        // 数组最大最小元素
+        let maxNum: Int = num.max()!
+        let minNum: Int = num.min()!
+        // 初始化数组空间为原数组大小
+        var result: [Int] = [Int](repeating: 0, count: num.count)
+        
+        // 计算k值,
+        let k: Int = maxNum - minNum + 1
+        // 初始化k大小空间的数组,做临时数据存储
+        var tmp: [Int] = [Int](repeating: 0, count: k)
+        
+        // 统计数组中每个值为元素出现的次数,存入数组的相应位置
+        for i in 0 ..< num.count {
+            tmp[num[i] - minNum] += 1
         }
+        
+        // 对所有的计数累加,(相邻数据相加)
+        for i in 1 ..< tmp.count {
+            tmp[i] += tmp[i - 1]
+        }
+        
+        // 反向填充目标数组
+        for i in (0 ..< num.count).reversed() {
+            // 按存取的方式取出c的元素
+            tmp[num[i] - minNum] -= 1
+            result[tmp[num[i] - minNum]] = num[i]
+        }
+        
+        return result
     }
-    
-    while leftIndex < leftNum.count {
-        result.append(leftNum[leftIndex])
-        leftIndex += 1
-    }
-    
-    while rightIndex < rightNum.count {
-        result.append(rightNum[rightIndex])
-        rightIndex += 1
-    }
-    
-    return result
 }
+
+

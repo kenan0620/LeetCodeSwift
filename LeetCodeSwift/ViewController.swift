@@ -129,7 +129,8 @@ class ViewController: UIViewController {
 //        print("快速排序", AlgorithmSort.quickSort(nums: &nums, low: 0, high: nums.count - 1))
 //        print("希尔排序", AlgorithmSort.shellSort(nums: &nums))
 //        print("堆排序", AlgorithmSort.heapSort(nums: &nums))
-        print("归并排序", AlgorithmSort.mergeSort(nums))
+//        print("归并排序", AlgorithmSort.mergeSort(nums))
+        print("计数排序", AlgorithmSort.countingSort(nums))
 
 
     }

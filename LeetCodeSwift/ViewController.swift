@@ -120,7 +120,7 @@ class ViewController: UIViewController {
    
     
     func sort() {
-        let nums = [10, 20, 45, 50, 15, 25, 35, 40, 30,]
+        let nums = [1, 2, 3, 4, 1, 4, 5, 0, 5,]
 //        var nums = [1,2,4,5,7,9,10,34,44,56]
 //        print("冒泡排序", AlgorithmSort.bubbleSortOptimize(nums: &nums))
 //        print("选择排序", AlgorithmSort.selectionSort(nums: &nums))
@@ -130,7 +130,8 @@ class ViewController: UIViewController {
 //        print("希尔排序", AlgorithmSort.shellSort(nums: &nums))
 //        print("堆排序", AlgorithmSort.heapSort(nums: &nums))
 //        print("归并排序", AlgorithmSort.mergeSort(nums))
-        print("计数排序", AlgorithmSort.countingSort(nums))
+//        print("计数排序", AlgorithmSort.countingSort(nums))
+        print("桶排序", AlgorithmSort.bucketSort(nums, 3))
 
 
     }

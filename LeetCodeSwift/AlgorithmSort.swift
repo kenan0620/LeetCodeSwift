@@ -230,6 +230,42 @@ class AlgorithmSort {
         
         return result
     }
+    
+    // 桶排序
+    static func bucketSort(_ num: [Int], _ gap: Int) -> [Int]{
+        // 数组最大最小元素
+        let maxNum: Int = num.max()!
+        let minNum: Int = num.min()!
+        // 桶的个数
+        let bucketCount: Int = (maxNum - minNum) / gap + 1
+        // 初始化桶
+        var  bucketArray: [[Int]] = [[Int]](repeating: [Int](), count: bucketCount)
+        for i in 0 ..< num.count {
+            // 计算数据在桶的位置
+            let index: Int = (num[i] - minNum) / gap
+            bucketArray[index].append(num[i])
+        }
+        
+        for i in 0 ..< bucketCount {
+            if bucketArray[i].count > 0 {
+                // 对桶内数据进行希尔排序
+                shellSort(nums: &bucketArray[i])
+            }
+        }
+        
+        var result = [Int]()
+        
+        for i in 0 ..< bucketCount {
+            let bucket: [Int] = bucketArray[i]
+            if bucket.count > 0 {
+                // 数组添加桶数据
+                result += bucket
+            }
+        }
+        
+        return result
+        
+    }
 }
 
 

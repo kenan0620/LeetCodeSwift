@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        sort()
+        lcString()
     }
     
     func lcArray() -> Void {
@@ -71,23 +71,23 @@ class ViewController: UIViewController {
         //        let num = LCArraySolution.twoSum(array,23)
         //        print(num)
         
-//        let array: [[Character]] = [["5","3",".",".","7",".",".",".","."]
-//                                    ,["6",".",".","1","9","5",".",".","."]
-//                                    ,[".","9","8",".",".",".",".","6","."]
-//                                    ,["8",".",".",".","6",".",".",".","3"]
-//                                    ,["4",".",".","8",".","3",".",".","1"]
-//                                    ,["7",".",".",".","2",".",".",".","6"]
-//                                    ,[".","6",".",".",".",".","2","8","."]
-//                                    ,[".",".",".","4","1","9",".",".","5"]
-//                                    ,[".",".",".",".","8",".",".","7","9"]]
-//
-//        let num = LCArraySolution.isValidSudoku(array)
-//
-//        print(num ? "是数独": "不是数独")
+        //        let array: [[Character]] = [["5","3",".",".","7",".",".",".","."]
+        //                                    ,["6",".",".","1","9","5",".",".","."]
+        //                                    ,[".","9","8",".",".",".",".","6","."]
+        //                                    ,["8",".",".",".","6",".",".",".","3"]
+        //                                    ,["4",".",".","8",".","3",".",".","1"]
+        //                                    ,["7",".",".",".","2",".",".",".","6"]
+        //                                    ,[".","6",".",".",".",".","2","8","."]
+        //                                    ,[".",".",".","4","1","9",".",".","5"]
+        //                                    ,[".",".",".",".","8",".",".","7","9"]]
+        //
+        //        let num = LCArraySolution.isValidSudoku(array)
+        //
+        //        print(num ? "是数独": "不是数独")
         
-//        var array = [[1,2,3],[4,5,6],[7,8,9]]
+        //        var array = [[1,2,3],[4,5,6],[7,8,9]]
         
-//        LCArraySolution.rotate(&array)
+        //        LCArraySolution.rotate(&array)
     }
     
     func sumOneH(_ nums: inout [Int], _ nums2: inout [Int]) -> [(Int, Int)] {
@@ -117,31 +117,33 @@ class ViewController: UIViewController {
         return array
     }
     
-   
+    
     
     func sort() {
         let nums = [1, 2, 3, 4, 1, 4, 5, 0, 5,]
-//        var nums = [1,2,4,5,7,9,10,34,44,56]
-//        print("冒泡排序", AlgorithmSort.bubbleSortOptimize(nums: &nums))
-//        print("选择排序", AlgorithmSort.selectionSort(nums: &nums))
-//        print("插入排序", AlgorithmSort.insertionSort(nums: &nums))
-//        AlgorithmSort.quickSort(nums: &nums, low: 0, high: nums.count - 1)
-//        print("快速排序", AlgorithmSort.quickSort(nums: &nums, low: 0, high: nums.count - 1))
-//        print("希尔排序", AlgorithmSort.shellSort(nums: &nums))
-//        print("堆排序", AlgorithmSort.heapSort(nums: &nums))
-//        print("归并排序", AlgorithmSort.mergeSort(nums))
-//        print("计数排序", AlgorithmSort.countingSort(nums))
-        print("桶排序", AlgorithmSort.bucketSort(nums, 3))
-
-
+        //        var nums = [1,2,4,5,7,9,10,34,44,56]
+        //        print("冒泡排序", AlgorithmSort.bubbleSortOptimize(nums: &nums))
+        //        print("快速排序", AlgorithmSort.quickSort(nums: &nums, low: 0, high: nums.count - 1))
+        //        print("插入排序", AlgorithmSort.insertionSort(nums: &nums))
+        //        print("希尔排序", AlgorithmSort.shellSort(nums: &nums))
+        //        print("选择排序", AlgorithmSort.selectionSort(nums: &nums))
+        //        print("堆排序", AlgorithmSort.heapSort(nums: &nums))
+        //        print("归并排序", AlgorithmSort.mergeSort(nums))
+        //        print("计数排序", AlgorithmSort.countingSort(nums))
+        //        print("桶排序", AlgorithmSort.bucketSort(nums, 3))
+//                print("基数排序", AlgorithmSort.bucketSort(nums, 3))
     }
     
     func lcString() {
-//        var chars: [Character] = ["1","2","s","g","#","&","d","m","i"]
-//        LCStringSolution.reverseString(&chars)
+        //        var chars: [Character] = ["1","2","s","g","#","&","d","m","i"]
+        //        LCStringSolution.reverseString(&chars)
         
-        let num = LCStringSolution.reverse(12)
-        print(num)
+//        let num = 1534236469
+//
+//        let nums = LCStringSolution.reverse(num)
+        
+        let nums = LCStringSolution.firstUniqChar("firstunifqchar")
+        print(nums)
     }
     
     func list() {

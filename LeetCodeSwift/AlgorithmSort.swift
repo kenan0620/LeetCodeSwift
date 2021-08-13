@@ -266,6 +266,50 @@ class AlgorithmSort {
         return result
         
     }
+    
+    // 基数排序
+    static func radixSort(_ num: inout [Int], _ gap: Int){
+        // 数组最大最小元素
+        let maxNum: Int = num.max()!
+        let minNum: Int = num.min()!
+        let maxLength: Int = numberLength(maxNum)
+        
+        // 桶的个数
+        let bucketCount: Int = (maxNum - minNum) / gap + 1
+        // 初始化桶
+        var  bucketArray: [[Int]] = [[Int]](repeating: [Int](), count: bucketCount)
+        
+        for digit in 1 ..< maxLength {
+            for item in num {
+                let baseNum = fetchBaseNumber(item, digit)
+                bucketArray[baseNum].append(baseNum)
+                
+            }
+            //出桶
+            var index = 0
+            for i in 0 ..< bucketArray.count{
+                while !bucketArray[i].isEmpty {
+                    num[index] = bucketArray[i].remove(at: 0)
+                    index += 1
+                }
+            }
+        }
+        
+        print(num)
+    }
+    
+    static private func fetchBaseNumber(_ num : Int, _ digit : Int)->Int{
+        if digit > 0 && digit <= numberLength(num) {
+            var numArr : Array<Int> = []
+            for char in "\(num)" {
+                numArr.append(Int("\(char)")!)
+            }
+            return numArr[numArr.count-digit]
+        }
+        return 0
+    }
+    
+    static  private func numberLength(_ num : Int)->Int{
+        return "\(num)".count
+    }
 }
-
-

@@ -142,9 +142,26 @@ class ViewController: UIViewController {
 //
 //        let nums = LCStringSolution.reverse(num)
         
-        let nums = LCStringSolution.firstUniqChar("firstunifqchar")
+//        let s = "leetcode"
+//
+//        let nums = LCStringSolution.firstUniqChar(s)
+//        print(nums)
+        
+//        let s = "rst", t = "str"
+//
+//
+//        let nums = LCStringSolution.isAnagram(s, t)
+//        let string = "A man, a plan, a canal: Panama"
+//        let nums = LCStringSolution.isPalindrome(string)
+//        print( nums ? "是": "不是")
+
+        let string = "9223372036854775808"
+
+        let nums = LCStringSolution.myAtoi(string)
         print(nums)
+       
     }
+    
     
     func list() {
         let endNode = ListNode.init(0)

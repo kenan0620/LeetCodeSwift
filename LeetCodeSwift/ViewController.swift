@@ -172,6 +172,13 @@ class ViewController: UIViewController {
         let num =  LCStringSolution.countAndSay(5)
         print("外观数列是:",num)
         
+        for i in 1 ..< 31 {
+            let num =  LCStringSolution.countAndSay(i)
+
+            print("\(i):\(num)")
+//            map.updateValue("\(num)", forKey: i)
+        }
+
     }
  
     

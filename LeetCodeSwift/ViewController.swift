@@ -131,37 +131,49 @@ class ViewController: UIViewController {
         //        print("归并排序", AlgorithmSort.mergeSort(nums))
         //        print("计数排序", AlgorithmSort.countingSort(nums))
         //        print("桶排序", AlgorithmSort.bucketSort(nums, 3))
-//                print("基数排序", AlgorithmSort.bucketSort(nums, 3))
+        //                print("基数排序", AlgorithmSort.bucketSort(nums, 3))
     }
     
     func lcString() {
         //        var chars: [Character] = ["1","2","s","g","#","&","d","m","i"]
         //        LCStringSolution.reverseString(&chars)
         
-//        let num = 1534236469
-//
-//        let nums = LCStringSolution.reverse(num)
+        //        let num = 1534236469
+        //
+        //        let nums = LCStringSolution.reverse(num)
         
-//        let s = "leetcode"
-//
-//        let nums = LCStringSolution.firstUniqChar(s)
-//        print(nums)
+        //        let s = "leetcode"
+        //
+        //        let nums = LCStringSolution.firstUniqChar(s)
+        //        print(nums)
         
-//        let s = "rst", t = "str"
+        //        let s = "rst", t = "str"
+        //
+        //
+        //        let nums = LCStringSolution.isAnagram(s, t)
+        //        let string = "A man, a plan, a canal: Panama"
+        //        let nums = LCStringSolution.isPalindrome(string)
+        //        print( nums ? "是": "不是")
+        
+        //        let string = "20000000000000000000"
+        //
+        //        let nums = LCStringSolution.myAtoi(string)
+        //        print(nums)
+//        let haystack = "abc"
+//        , needle = "c"
+//        let num =  LCStringSolution.strStr(haystack, needle)
+//        print(num)
+//        let array = ["t1q","tat6981","t345"]
 //
-//
-//        let nums = LCStringSolution.isAnagram(s, t)
-//        let string = "A man, a plan, a canal: Panama"
-//        let nums = LCStringSolution.isPalindrome(string)
-//        print( nums ? "是": "不是")
-
-        let string = "9223372036854775808"
-
-        let nums = LCStringSolution.myAtoi(string)
-        print(nums)
-       
+//        let num =  LCStringSolution.longestCommonPrefix(array)
+//                print("最长公共前缀是:",num)
+        
+        
+        let num =  LCStringSolution.countAndSay(5)
+        print("外观数列是:",num)
+        
     }
-    
+ 
     
     func list() {
         let endNode = ListNode.init(0)

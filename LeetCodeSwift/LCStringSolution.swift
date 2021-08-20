@@ -245,12 +245,17 @@ class LCStringSolution {
     
     //字符串转换整数 (atoi)
     static func myAtoi(_ s: String) -> Int {
+        // 最大值、最小值
+        let max = Int(powl(2, 31)) - 1
+        let min = Int(powl(-2, 31))
+        // 分割字符串,直接取消空格处理
         let array = s.split(separator: " ")
-        
         guard let string = array.first else {
             return 0
         }
         var result: String = ""
+        
+        // 是否是正负符号开始
         var hasSymbol = false
         if string.hasPrefix("+") || string.hasPrefix("-"){
             hasSymbol = true
@@ -264,17 +269,120 @@ class LCStringSolution {
         }
         
         let value: Double = Double(result) ?? 0
-        if value > Double(Int(powl(2, 31)) - 1) {
-            return Int(powl(2, 31)) - 1
+        if value > Double(max) {
+            return max
         }
-        if value < Double(Int(powl(-2, 31))) {
-            return Int(powl(-2, 31))
+        if value < Double(min) {
+            return min
         }
-        if  Int(value) < Int(powl(-2, 31)) {
-            return Int(powl(-2, 31))
-        } else if Int(value) > Int(powl(2, 31)) - 1 {
-            return Int(powl(2, 31)) - 1
+        if  Int(value) < min {
+            return min
+        } else if Int(value) > max {
+            return max
         }
         return Int(value)
     }
+    
+    // 实现 strStr()
+    static func strStr(_ haystack: String, _ needle: String) -> Int {
+        
+        //        if haystack == needle{
+        //            return 0
+        //        }
+        //        if haystack.count < needle.count{
+        //            return -1
+        //        }
+        //        var a:String=haystack
+        //        for i in 0...(a.count-needle.count){
+        //            if a.hasPrefix(needle){
+        //                return i
+        //            }
+        //            a.remove(at:a.startIndex)
+        //        }
+        //        return -1
+        return kmp(s: Array(haystack), p: Array(needle))
+        
+    }
+    
+    static func kmp(s: [Character], p: [Character]) -> Int {
+        let m = s.count, n = p.count
+        if p.count == 0 { return 0 }
+        
+        var i = 0, j = 0
+        let next = getNext(p)
+        
+        while i < m && j < n {
+            if j == -1 || s[i] == p[j] {
+                i += 1
+                j += 1
+            } else {
+                j = next[j]
+            }
+        }
+        
+        return (j == n) ? i - j : -1
+    }
+    
+    /// 求解 next 数组
+    static func getNext(_ p: [Character]) -> [Int] {
+        let n = p.count
+        var k = -1, j = 0
+        var next = Array<Int>(repeating: 0, count: n)
+        next[0] = -1
+        
+        while j < n - 1 {
+            if k == -1 || p[k] == p[j] {
+                j += 1
+                k += 1
+                next[j] = (p[j] == p[k] ? next[k] : k)
+            } else {
+                k = next[k]
+            }
+        }
+        
+        return next
+    }
+    
+    
+    // 最长公共前缀
+    static func longestCommonPrefix(_ strs: [String]) -> String {
+        
+        
+        guard strs.count > 0 else {return ""}
+        var result = strs[0]
+        for (i,str) in strs.enumerated() {
+            print(i,str)
+            if i==0 {continue}
+            while !str.hasPrefix(result) {
+                result.removeLast()
+            }
+        }
+        return result
+    }
+    
+    static func countAndSay(_ n: Int) -> String {
+        
+        var string = ""
+        
+        if n == 1 {
+            string = "1"
+        }else{
+            let str = countAndSay(n - 1)
+            var fast = 0,slow = 0
+            while fast < str.count {
+                if (str as NSString).substring(with: NSRange.init(location: fast, length: 1)) != (str as NSString).substring(with: NSRange.init(location: slow, length: 1)) {
+                    string.append("\(fast - slow)")
+                    string.append((str as NSString).substring(with: NSRange.init(location: slow, length: 1)))
+                    slow = fast
+                }
+                fast += 1
+            }
+            string.append("\(fast - slow)")
+            string.append((str as NSString).substring(with: NSRange.init(location: slow, length: 1)))
+        }
+        
+        return string
+        
+    }
 }
+

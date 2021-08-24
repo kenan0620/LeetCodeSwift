@@ -16,16 +16,10 @@ class ListNode: NSObject{
     }
 }
 
-
 class LCListSolution {
-
+    
     /**
      1、删除链表中的节点
-     请编写一个函数，使其可以删除某个链表中给定的（非末尾）节点。传入函数的唯一参数为 要被删除的节点 。
-     现有一个链表 -- head = [4,5,1,9]，
-     输入：head = [4,5,1,9], node = 5
-     输出：[4,1,9]
-     解释：给定你链表中值为 5 的第二个节点，那么在调用了你的函数之后，该链表应变为 4 -> 1 -> 9.
      */
     static func deleteNode(_ node: ListNode?){
         node?.val = (node?.next!.val)!
@@ -33,14 +27,37 @@ class LCListSolution {
     }
     
     /**
-     给你一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点。
-     
+     2、给你一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点。
      */
     
     static func removeNthFromEnd(_ head: ListNode?, _ n: Int) -> ListNode? {
+        print("链表的长度是",nodeLength(head))
+        
+        let index = nodeLength(head) - n
+        
+        if index == 0 {
+            // 删除第一个
+            return head?.next
+        }
+        
+        var newHead = head
+        for _ in 0 ..< index - 1 {
+            newHead = newHead?.next
+        }
+        newHead?.next = newHead?.next?.next
         
         return head;
     }
+    
+    static private func nodeLength(_ head: ListNode?) -> Int{
+        
+        if head == nil {
+            return 0
+        }
+        
+        return nodeLength(head?.next) + 1
+    }
+    
     
     /**
      反转链表 1、迭代
@@ -78,6 +95,11 @@ class LCListSolution {
         return node
     }
     
+    // 合并两个有序链表
+    static func mergeTwoLists(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
+        return l1
+    }
+    
     /**
      回文链表
      
@@ -103,7 +125,7 @@ class LCListSolution {
         }
         return true
     }
-  
+    
     /**
      回文链表
      
@@ -137,4 +159,12 @@ class LCListSolution {
         }
         return true
     }
+    
+    // 环形链表
+    static func hasCycle(_ head: ListNode?) -> Bool {
+        
+        return false
+    }
 }
+
+

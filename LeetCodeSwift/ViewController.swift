@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        lcString()
+        list()
     }
     
     func lcArray() -> Void {
@@ -159,28 +159,28 @@ class ViewController: UIViewController {
         //
         //        let nums = LCStringSolution.myAtoi(string)
         //        print(nums)
-//        let haystack = "abc"
-//        , needle = "c"
-//        let num =  LCStringSolution.strStr(haystack, needle)
-//        print(num)
-//        let array = ["t1q","tat6981","t345"]
-//
-//        let num =  LCStringSolution.longestCommonPrefix(array)
-//                print("最长公共前缀是:",num)
+        //        let haystack = "abc"
+        //        , needle = "c"
+        //        let num =  LCStringSolution.strStr(haystack, needle)
+        //        print(num)
+        //        let array = ["t1q","tat6981","t345"]
+        //
+        //        let num =  LCStringSolution.longestCommonPrefix(array)
+        //                print("最长公共前缀是:",num)
         
         
-        let num =  LCStringSolution.countAndSay(5)
+        let num =  LCStringSolution.countAndSayTwo(5)
         print("外观数列是:",num)
         
         for i in 1 ..< 31 {
-            let num =  LCStringSolution.countAndSay(i)
-
-            print("\(i):\(num)")
-//            map.updateValue("\(num)", forKey: i)
+            //            let num =  LCStringSolution.countAndSay(i)
+            
+            //            print("\(i):\(num)")
+            //            map.updateValue("\(num)", forKey: i)
         }
-
+        
     }
- 
+    
     
     func list() {
         let endNode = ListNode.init(0)
@@ -188,12 +188,13 @@ class ViewController: UIViewController {
         fourNode.next = endNode
         let threeNode = ListNode.init(2)
         threeNode.next = fourNode
-        let secondNode = ListNode.init(2)
+        let secondNode = ListNode.init(3)
         secondNode.next = threeNode
-        let firstNode = ListNode.init(1)
+        let firstNode = ListNode.init(4)
         firstNode.next = secondNode
-        let headNode = ListNode.init(0)
+        let headNode = ListNode.init(5)
         headNode.next = firstNode
+//        LCListSolution.deleteNode(secondNode)
         
         //        let node =
         //        ListSolution.reverseListTwo(headNode)
@@ -205,9 +206,15 @@ class ViewController: UIViewController {
         //
         //        print(nodeOne as Any)
         
-        print(LCListSolution.isPalindromeOne(headNode))
+        let node = LCListSolution.removeNthFromEnd(headNode, 4)
+        
+        print(node)
     }
     
     
 }
+
+
+
+
 

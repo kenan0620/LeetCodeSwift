@@ -377,7 +377,7 @@ class LCStringSolution {
         if n == 1 {
             string = "1"
         }else{
-            let str = countAndSay(n - 1)
+            let str = countAndSayTwo(n - 1)
             var fast = 0,slow = 0
             while fast < str.count {
                 if (str as NSString).substring(with: NSRange.init(location: fast, length: 1)) != (str as NSString).substring(with: NSRange.init(location: slow, length: 1)) {
@@ -389,6 +389,7 @@ class LCStringSolution {
             }
             string.append("\(fast - slow)")
             string.append((str as NSString).substring(with: NSRange.init(location: slow, length: 1)))
+            
         }
         
         return string

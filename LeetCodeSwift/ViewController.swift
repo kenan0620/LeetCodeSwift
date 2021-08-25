@@ -183,9 +183,8 @@ class ViewController: UIViewController {
     
     
     func list() {
-        let endNode = ListNode.init(0)
         let fourNode = ListNode.init(1)
-        fourNode.next = endNode
+        //        fourNode.next = endNode
         let threeNode = ListNode.init(2)
         threeNode.next = fourNode
         let secondNode = ListNode.init(3)
@@ -194,7 +193,7 @@ class ViewController: UIViewController {
         firstNode.next = secondNode
         let headNode = ListNode.init(5)
         headNode.next = firstNode
-//        LCListSolution.deleteNode(secondNode)
+        //        LCListSolution.deleteNode(secondNode)
         
         //        let node =
         //        ListSolution.reverseListTwo(headNode)
@@ -206,15 +205,10 @@ class ViewController: UIViewController {
         //
         //        print(nodeOne as Any)
         
-        let node = LCListSolution.removeNthFromEnd(headNode, 4)
+        let node = LCListSolution.removeNthFromEnd(headNode, 5)
         
         print(node)
     }
     
     
 }
-
-
-
-
-

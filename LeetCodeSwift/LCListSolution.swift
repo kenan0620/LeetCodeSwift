@@ -31,8 +31,24 @@ class LCListSolution {
      */
     
     static func removeNthFromEnd(_ head: ListNode?, _ n: Int) -> ListNode? {
-        print("链表的长度是",nodeLength(head))
+        let resultHead = ListNode(-1)
+        resultHead.next = head
+        var fast = resultHead, slow = resultHead, index = 0
+        while fast.next != nil {
+            // 让快慢指针同时指向下一个节点,直到链表结束,此时快慢指针相差n个
+            
+            fast = fast.next!
+            index += 1
+            if index > n {
+                slow = slow.next!
+            }
+        }
+        // 让慢指针指向下一个节点即可
+        slow.next = slow.next!.next
         
+        return resultHead.next
+    }
+    static func removeNthFromEndOne(_ head: ListNode?, _ n: Int) -> ListNode? {
         let index = nodeLength(head) - n
         
         if index == 0 {
@@ -48,7 +64,6 @@ class LCListSolution {
         
         return head;
     }
-    
     static private func nodeLength(_ head: ListNode?) -> Int{
         
         if head == nil {

@@ -82,13 +82,18 @@ class LCListSolution {
      执行用时：12 ms 内存消耗：14.5 MB
      */
     static func reverseListOne(_ head: ListNode?) -> ListNode? {
+        // 返回链表
         var newHead: ListNode? = nil
-        /// 循环节点
+        // 循环节点
         var old = head
         while old != nil {
+            // 先定义临时变量存储next
             let tmp = old?.next
+            // 节点指向返回链表(定义新链表承接)
             old?.next = newHead
+            // 返回链表等于循环链表
             newHead = old
+            // 让循环链表为临时变量,进行继续循环
             old = tmp
         }
         
@@ -101,18 +106,56 @@ class LCListSolution {
      执行用时：16 ms 内存消耗： 15.1 MB
      */
     static func reverseListTwo(_ head: ListNode?) -> ListNode? {
+        // 单链表和空链表直接返回
         if head == nil || head?.next == nil{
             return head
         }
+        // 递归调用,直到尾节点
         let node : ListNode? = reverseListTwo(head?.next)
+        // 直接反转链表节点指向
         head?.next?.next = head
+        // 最后next置空
         head?.next = nil
         return node
     }
     
     // 合并两个有序链表
     static func mergeTwoLists(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
-        return l1
+        if l1 == nil || l2 == nil{
+            return l2 == nil ? l1 : l2
+        }
+        if l1!.val < l2!.val {
+            l1?.next = mergeTwoLists(l1?.next, l2)
+            return l1
+        }else{
+            l2?.next = mergeTwoLists(l1, l2?.next)
+            return l2
+        }
+    }
+    
+    static func mergeTwoListsTwo(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
+        if l1 == nil {
+            return l2
+        }
+        if l2 == nil {
+            return l1
+        }
+        var resultHead = ListNode(0),curHead = resultHead
+        var first = l1, second = l2
+                
+        while first != nil && second != nil {
+            if first!.val <= second!.val {
+                curHead.next = first
+                first = first?.next
+            }else if first!.val > second!.val {
+                curHead.next = second
+                second = second?.next
+            }
+            curHead = curHead.next!
+        }
+        curHead.next = first == nil ? second : first
+        
+        return resultHead.next
     }
     
     /**
@@ -181,5 +224,3 @@ class LCListSolution {
         return false
     }
 }
-
-

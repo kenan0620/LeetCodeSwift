@@ -183,20 +183,30 @@ class ViewController: UIViewController {
     
     
     func list() {
-        let fourNode = ListNode.init(1)
+        let fourNode = ListNode.init(5)
         //        fourNode.next = endNode
-        let threeNode = ListNode.init(2)
+        let threeNode = ListNode.init(4)
         threeNode.next = fourNode
         let secondNode = ListNode.init(3)
         secondNode.next = threeNode
-        let firstNode = ListNode.init(4)
+        let firstNode = ListNode.init(2)
         firstNode.next = secondNode
-        let headNode = ListNode.init(5)
+        let headNode = ListNode.init(1)
         headNode.next = firstNode
+        
+        let fourNode1 = ListNode.init(9)
+        let threeNode1 = ListNode.init(6)
+        threeNode1.next = fourNode1
+        let secondNode1 = ListNode.init(5)
+        secondNode1.next = threeNode1
+        let firstNode1 = ListNode.init(2)
+        firstNode1.next = secondNode1
+        let headNode1 = ListNode.init(0)
+        headNode1.next = firstNode1
         //        LCListSolution.deleteNode(secondNode)
         
-        //        let node =
-        //        ListSolution.reverseListTwo(headNode)
+//                let node =
+//                ListSolution.reverseListTwo(headNode)
         //
         //        print(node as Any)
         //
@@ -205,9 +215,11 @@ class ViewController: UIViewController {
         //
         //        print(nodeOne as Any)
         
-        let node = LCListSolution.removeNthFromEnd(headNode, 5)
+//        let node = LCListSolution.removeNthFromEnd(headNode, 5)
+//
+//        print(node)
         
-        print(node)
+        LCListSolution.mergeTwoLists(headNode, headNode1)
     }
     
     

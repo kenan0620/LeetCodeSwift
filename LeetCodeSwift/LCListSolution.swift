@@ -134,27 +134,31 @@ class LCListSolution {
     }
     
     static func mergeTwoListsTwo(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
-        if l1 == nil {
-            return l2
+        // 链表是否包含空,有空链表则直接返回
+        if l1 == nil || l2 == nil{
+            return l2 == nil ? l1 : l2
         }
-        if l2 == nil {
-            return l1
-        }
+        // 定义返回链表和当前链表
         var resultHead = ListNode(0),curHead = resultHead
+        // 定义l1和l2的可变链表(因为l1、l2,不可变,不能进行链表操作)
         var first = l1, second = l2
-                
+        // 第一个和第二个链表都不为空的时候执行循环操作
         while first != nil && second != nil {
+            // 比较大小
             if first!.val <= second!.val {
+                // 当前链表的next指向小的链表
                 curHead.next = first
                 first = first?.next
             }else if first!.val > second!.val {
                 curHead.next = second
                 second = second?.next
             }
+            // 当前链表指向下一个节点继续循环
             curHead = curHead.next!
         }
+        // 当一个链表循环结束的时候,直接拼接另一个链表即可
         curHead.next = first == nil ? second : first
-        
+        // 返回next链表
         return resultHead.next
     }
     
@@ -220,7 +224,34 @@ class LCListSolution {
     
     // 环形链表
     static func hasCycle(_ head: ListNode?) -> Bool {
+        //        var node = head
+        //        var set  = Set<ListNode>()
+        //        while node?.next != nil{
+        //            if set.contains(node!) {
+        //                return true
+        //            }
+        //            set.insert(node!)
+        //            node = node?.next
+        //        }
+        //
+        //        return false
         
+        if head == nil {return false}
+        var fast = head
+        var slow = head
+        while fast != nil && fast?.next != nil && fast?.next?.next != nil {
+            fast = fast?.next?.next?.next
+            slow = slow?.next
+            if fast === slow {
+                return true
+            }
+        }
         return false
+        
     }
 }
+
+
+
+
+

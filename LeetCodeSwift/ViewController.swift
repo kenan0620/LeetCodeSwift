@@ -185,14 +185,18 @@ class ViewController: UIViewController {
     func list() {
         let fourNode = ListNode.init(5)
         //        fourNode.next = endNode
-        let threeNode = ListNode.init(4)
-        threeNode.next = fourNode
-        let secondNode = ListNode.init(3)
-        secondNode.next = threeNode
-        let firstNode = ListNode.init(2)
-        firstNode.next = secondNode
+        
+        
+        
         let headNode = ListNode.init(1)
+        let firstNode = ListNode.init(2)
+        let secondNode = ListNode.init(3)
+        let threeNode = ListNode.init(4)
         headNode.next = firstNode
+        firstNode.next = secondNode
+        secondNode.next = threeNode
+//        threeNode.next = fourNode
+        
         
         let fourNode1 = ListNode.init(9)
         let threeNode1 = ListNode.init(6)
@@ -219,8 +223,12 @@ class ViewController: UIViewController {
 //
 //        print(node)
         
-        LCListSolution.mergeTwoLists(headNode, headNode1)
+//        LCListSolution.mergeTwoLists(headNode, headNode1)
+        let node =  LCListSolution.hasCycle(headNode)
+        print(node == true ? "环形链表" : "不是环形链表")
     }
     
     
 }
+
+

@@ -12,7 +12,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        list()
+        lcTree()
+    }
+    
+    func lcTree(){
+        let tree = TreeNode()
+        tree.left = TreeNode()
+        tree.right = TreeNode()
+        tree.left?.right = TreeNode()
+        tree.left?.right?.left = TreeNode()
+        tree.right?.right = TreeNode()
+
+       let depth = LCTreeSolution.maxDepth(tree)
+        print(depth)
     }
     
     func lcArray() -> Void {

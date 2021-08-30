@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		272CB40726DD025B00355245 /* LCTreeSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 272CB40626DD025B00355245 /* LCTreeSolution.swift */; };
 		275544F026B79997002D479D /* AlgorithmSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275544EF26B79997002D479D /* AlgorithmSort.swift */; };
 		275544F326BA467D002D479D /* LCStringSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275544F226BA467D002D479D /* LCStringSolution.swift */; };
 		277EE00226A6C7BF00B280EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277EE00126A6C7BF00B280EB /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		272CB40626DD025B00355245 /* LCTreeSolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCTreeSolution.swift; sourceTree = "<group>"; };
 		275544EF26B79997002D479D /* AlgorithmSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmSort.swift; sourceTree = "<group>"; };
 		275544F226BA467D002D479D /* LCStringSolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCStringSolution.swift; sourceTree = "<group>"; };
 		277EDFFE26A6C7BF00B280EB /* LeetCodeSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeetCodeSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +72,7 @@
 				27BF487B26AE7B190060D910 /* LCArraySolution.swift */,
 				27BF487526AE7A850060D910 /* LCListSolution.swift */,
 				275544F226BA467D002D479D /* LCStringSolution.swift */,
+				272CB40626DD025B00355245 /* LCTreeSolution.swift */,
 				275544EF26B79997002D479D /* AlgorithmSort.swift */,
 				277EE00726A6C7BF00B280EB /* Main.storyboard */,
 				277EE00A26A6C7CA00B280EB /* Assets.xcassets */,
@@ -152,6 +155,7 @@
 				277EE00626A6C7BF00B280EB /* ViewController.swift in Sources */,
 				277EE00226A6C7BF00B280EB /* AppDelegate.swift in Sources */,
 				275544F026B79997002D479D /* AlgorithmSort.swift in Sources */,
+				272CB40726DD025B00355245 /* LCTreeSolution.swift in Sources */,
 				275544F326BA467D002D479D /* LCStringSolution.swift in Sources */,
 				277EE00426A6C7BF00B280EB /* SceneDelegate.swift in Sources */,
 				27BF487626AE7A850060D910 /* LCListSolution.swift in Sources */,

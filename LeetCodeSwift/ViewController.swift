@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class ViewController: UIViewController {
     
     override func viewDidLoad() {
@@ -17,14 +18,25 @@ class ViewController: UIViewController {
     
     func lcTree(){
         let tree = TreeNode()
+        tree.val = 10
         tree.left = TreeNode()
+        tree.left?.val = 5
         tree.right = TreeNode()
+        tree.right?.val = 11
         tree.left?.right = TreeNode()
-        tree.left?.right?.left = TreeNode()
-        tree.right?.right = TreeNode()
+        tree.left?.right?.val = 6
 
-       let depth = LCTreeSolution.maxDepth(tree)
-        print(depth)
+        tree.left?.right?.left = TreeNode()
+        tree.left?.right?.left?.val = 7
+
+        tree.right?.right = TreeNode()
+        tree.right?.right?.val = 13
+
+//       let depth = LCTreeSolution.maxDepth(tree)
+        
+        let depth = LCTreeSolution.isValidBST(tree)
+
+        print( depth == true ? "是" : "不是")
     }
     
     func lcArray() -> Void {

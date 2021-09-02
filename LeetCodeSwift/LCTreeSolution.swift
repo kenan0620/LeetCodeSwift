@@ -49,5 +49,60 @@ class LCTreeSolution {
         //归根结底还是需要递归
         return isValidBST(tree.left, min, tree.val) && isValidBST(tree.right, tree.val, max)
     }
+    
+    // 对称二叉树
+    static func isSymmetric(_ root: TreeNode?) -> Bool {
+        
+        guard let tree = root else {
+            return true
+        }
+        
+        return isSymmetric(tree.left, tree.right)
+    }
+    
+    static func isSymmetric(_ left: TreeNode?, _ right: TreeNode?) -> Bool {
+        // 左右节点是否存在,都不存在则返回true
+        if left == nil && right == nil {
+            return true
+        }
+        // 如果其中一个节点不存则返回false,或者节点值不相等
+        guard let leftTree = left , let rightTree = right else {
+            return false
+        }
+        if leftTree.val != rightTree.val{
+            return false
+        }
+        // 返回左右节点的字节点是否对称相应节点
+        return isSymmetric(leftTree.left, rightTree.right) && isSymmetric(leftTree.right, rightTree.left)
+    }
+    
+    //二叉树的层序遍历
+    static func levelOrder(_ root: TreeNode?) -> [[Int]] {
+        guard let tree = root else { return [] }
+        var array: [TreeNode] = [tree]
+        var result: [[Int]] = []
+        //临时存储数组
+        var nextLevelArray: [TreeNode] = []
+        while array.count != 0 {
+            var temp: [Int] = []
+            for node in array {
+                temp.append(node.val)
+                if let left = node.left {
+                    nextLevelArray.append(left)
+                }
+                if let right = node.right {
+                    nextLevelArray.append(right)
+                }
+            }
+            result.append(temp)
+            array.removeAll()
+            array = nextLevelArray
+            nextLevelArray.removeAll()
+        }
+        return result
+    }
+    
+    
 }
+
 

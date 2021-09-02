@@ -13,10 +13,33 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.view.backgroundColor = .yellow
         lcTree()
     }
     
     func lcTree(){
+        let root = TreeNode()
+        root.val = 1
+        let firLeft = TreeNode()
+        firLeft.val = 2
+        let firRight = TreeNode()
+        firRight.val = 2
+        let secFirLeftLeft = TreeNode()
+        secFirLeftLeft.val = 3
+        let secFirLeftRight = TreeNode()
+        secFirLeftRight.val = 4
+        let secFirRightLeft = TreeNode()
+        secFirRightLeft.val = 4
+        let secFirRightRight = TreeNode()
+        secFirRightRight.val = 3
+        root.left = firLeft
+        root.right = firRight
+        firLeft.left = secFirLeftLeft
+        firLeft.right = secFirLeftRight
+        firRight.left = secFirRightLeft
+        firRight.right = secFirRightRight
+        
+        
         let tree = TreeNode()
         tree.val = 10
         tree.left = TreeNode()
@@ -34,9 +57,10 @@ class ViewController: UIViewController {
 
 //       let depth = LCTreeSolution.maxDepth(tree)
         
-        let depth = LCTreeSolution.isValidBST(tree)
-
-        print( depth == true ? "是" : "不是")
+//        let depth = LCTreeSolution.isSymmetric(root)
+//
+        let depth = LCTreeSolution.levelOrder(tree)
+        print("结果是", depth)
     }
     
     func lcArray() -> Void {

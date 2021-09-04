@@ -102,7 +102,37 @@ class LCTreeSolution {
         return result
     }
     
+    //将有序数组转换为二叉搜索树
+    static func sortedArrayToBST(_ nums: [Int]) -> TreeNode? {
+        return sortedArrayToBST(0, nums.count - 1, nums)
+    }
     
+    static func sortedArrayToBST(_ start: Int, _ end: Int, _ num: [Int]) -> TreeNode?{
+        if start > end {
+            return nil
+        }
+        let mid = (start + end) / 2
+        let root = TreeNode.init(num[mid])
+        root.left = sortedArrayToBST(start, mid - 1, num)
+        root.right = sortedArrayToBST(mid + 1, end, num)
+        return root
+    }
 }
 
+ func sortedArrayToBST(_ nums: [Int]) -> TreeNode? {
+    return sortedArrayToBST(0, nums.count - 1, nums)
+}
 
+ func sortedArrayToBST(_ start: Int, _ end: Int, _ num: [Int]) -> TreeNode?{
+    if start > end {
+        return nil
+    }
+    // 取中
+    let mid = (start + end) / 2
+    let root = TreeNode.init(num[mid])
+    // 继续取中
+    root.left = sortedArrayToBST(start, mid - 1, num)
+    // 继续取中
+    root.right = sortedArrayToBST(mid + 1, end, num)
+    return root
+}

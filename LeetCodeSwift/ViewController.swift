@@ -14,7 +14,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.view.backgroundColor = .yellow
-        lcTree()
+//        lcTree()
+        var nums1 = [0]
+        let nums2 = [1]
+
+        PrimaryAlgorithm.merge(&nums1, 0, nums2, nums2.count)
     }
     
     func lcTree(){
@@ -59,8 +63,12 @@ class ViewController: UIViewController {
         
 //        let depth = LCTreeSolution.isSymmetric(root)
 //
-        let depth = LCTreeSolution.levelOrder(tree)
-        print("结果是", depth)
+//        let depth = LCTreeSolution.levelOrder(tree)
+//        print("结果是", depth)
+        
+       let nums = [-10,-3,0,5,9]
+        
+        LCTreeSolution.sortedArrayToBST(nums)
     }
     
     func lcArray() -> Void {

@@ -11,7 +11,6 @@ class PrimaryAlgorithm {
     
     //MARK: - 排序和搜索
     
-    
     /// 合并两个有序数组
     static func merge(_ nums1: inout [Int], _ m: Int, _ nums2: [Int], _ n: Int) {
         var i = m - 1, j = n - 1, res = m + n - 1
@@ -25,5 +24,23 @@ class PrimaryAlgorithm {
             }
             res -= 1
         }
+    }
+    /// 第一个错误的版本
+    static func firstBadVersion(_ n: Int) -> Int {
+        var start = 1, end = n
+        
+        while start < end {
+            let mid = start + (end - start) / 2
+            if !isBadVersion(mid) {
+                start = mid + 1
+            }else{
+                end = mid
+            }
+        }
+        return start
+    }
+    
+    static func isBadVersion(_ v: Int) -> Bool{
+        return true;
     }
 }

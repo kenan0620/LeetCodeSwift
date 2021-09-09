@@ -41,6 +41,37 @@ class PrimaryAlgorithm {
     }
     
     static func isBadVersion(_ v: Int) -> Bool{
-        return true;
+        return true
+    }
+    
+    /// 爬楼梯
+    static func climbStairs(_ n: Int) -> Int {
+        
+        if n == 1 || n == 2 {
+            return n
+        }
+        // 超时
+        //        return climbStairs(n - 1) + climbStairs(n - 2)
+        var fx: Int = 0
+        var fy: Int = 1
+        var total: Int = fx + fy
+        for _ in 2 ..< n + 1 {
+            fx = fy
+            fy = total
+            total = fx + fy
+        }
+        return total
+    }
+    
+    // 最大字序和
+    static func maxSubArray(_ nums: [Int]) -> Int {
+        var dp = [Int](repeating: 0, count: nums.count)
+        dp[0] = nums[0]
+        var maxSum = dp[0]
+        for i in 1..<nums.count {
+            dp[i] = max(dp[i-1]+nums[i],nums[i])
+            maxSum = max(dp[i], maxSum)
+        }
+        return maxSum
     }
 }

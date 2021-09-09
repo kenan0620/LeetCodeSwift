@@ -14,13 +14,20 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.view.backgroundColor = .yellow
-//        lcTree()
-        var nums1 = [0]
-        let nums2 = [1]
 
-        PrimaryAlgorithm.merge(&nums1, 0, nums2, nums2.count)
+        primaryAlgorithm()
     }
     
+    func primaryAlgorithm(){
+        //        var nums1 = [0]
+        //        let nums2 = [1]
+
+        //        PrimaryAlgorithm.merge(&nums1, 0, nums2, nums2.count)
+//              let count =   PrimaryAlgorithm.climbStairs(44)
+        
+        let num = PrimaryAlgorithm.maxSubArray([])
+        print(num)
+    }
     func lcTree(){
         let root = TreeNode()
         root.val = 1

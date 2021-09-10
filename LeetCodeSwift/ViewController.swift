@@ -27,9 +27,11 @@ class ViewController: UIViewController {
         
 //        let num = PrimaryAlgorithm.maxSubArray([])
 //        let num = PrimaryAlgorithm.rob([0])
-        let num = PrimaryAlgorithm.maxProfit([7,1,5,3,6,4])
+//        let num = PrimaryAlgorithm.maxProfit([7,1,5,3,6,4])
 
-        print(num)
+        let solu = Solution.init([1,2,3,4,5,6,7,8,])
+        
+        print(solu.shuffle())
     }
     func lcTree(){
         let root = TreeNode()

@@ -11,6 +11,8 @@
 		275544F026B79997002D479D /* AlgorithmSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275544EF26B79997002D479D /* AlgorithmSort.swift */; };
 		275544F326BA467D002D479D /* LCStringSolution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275544F226BA467D002D479D /* LCStringSolution.swift */; };
 		276BC7D326E33BBC00F28815 /* PrimaryAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276BC7D226E33BBC00F28815 /* PrimaryAlgorithm.swift */; };
+		27717DA226EB32B800CBA8AD /* MinStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27717DA126EB32B800CBA8AD /* MinStack.swift */; };
+		27717DA526EB37E500CBA8AD /* Solution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27717DA426EB37E500CBA8AD /* Solution.swift */; };
 		277EE00226A6C7BF00B280EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277EE00126A6C7BF00B280EB /* AppDelegate.swift */; };
 		277EE00426A6C7BF00B280EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277EE00326A6C7BF00B280EB /* SceneDelegate.swift */; };
 		277EE00626A6C7BF00B280EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277EE00526A6C7BF00B280EB /* ViewController.swift */; };
@@ -26,6 +28,8 @@
 		275544EF26B79997002D479D /* AlgorithmSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlgorithmSort.swift; sourceTree = "<group>"; };
 		275544F226BA467D002D479D /* LCStringSolution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LCStringSolution.swift; sourceTree = "<group>"; };
 		276BC7D226E33BBC00F28815 /* PrimaryAlgorithm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryAlgorithm.swift; sourceTree = "<group>"; };
+		27717DA126EB32B800CBA8AD /* MinStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinStack.swift; sourceTree = "<group>"; };
+		27717DA426EB37E500CBA8AD /* Solution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solution.swift; sourceTree = "<group>"; };
 		277EDFFE26A6C7BF00B280EB /* LeetCodeSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LeetCodeSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		277EE00126A6C7BF00B280EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		277EE00326A6C7BF00B280EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +57,8 @@
 			isa = PBXGroup;
 			children = (
 				276BC7D226E33BBC00F28815 /* PrimaryAlgorithm.swift */,
+				27717DA126EB32B800CBA8AD /* MinStack.swift */,
+				27717DA426EB37E500CBA8AD /* Solution.swift */,
 			);
 			path = "初级算法";
 			sourceTree = "<group>";
@@ -167,7 +173,9 @@
 				277EE00226A6C7BF00B280EB /* AppDelegate.swift in Sources */,
 				275544F026B79997002D479D /* AlgorithmSort.swift in Sources */,
 				272CB40726DD025B00355245 /* LCTreeSolution.swift in Sources */,
+				27717DA526EB37E500CBA8AD /* Solution.swift in Sources */,
 				275544F326BA467D002D479D /* LCStringSolution.swift in Sources */,
+				27717DA226EB32B800CBA8AD /* MinStack.swift in Sources */,
 				277EE00426A6C7BF00B280EB /* SceneDelegate.swift in Sources */,
 				27BF487626AE7A850060D910 /* LCListSolution.swift in Sources */,
 				276BC7D326E33BBC00F28815 /* PrimaryAlgorithm.swift in Sources */,

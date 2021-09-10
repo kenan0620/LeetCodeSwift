@@ -25,7 +25,9 @@ class ViewController: UIViewController {
         //        PrimaryAlgorithm.merge(&nums1, 0, nums2, nums2.count)
 //              let count =   PrimaryAlgorithm.climbStairs(44)
         
-        let num = PrimaryAlgorithm.maxSubArray([])
+//        let num = PrimaryAlgorithm.maxSubArray([])
+        let num = PrimaryAlgorithm.rob([0])
+
         print(num)
     }
     func lcTree(){

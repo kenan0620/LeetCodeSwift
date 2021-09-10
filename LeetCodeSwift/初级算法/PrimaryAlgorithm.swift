@@ -74,4 +74,29 @@ class PrimaryAlgorithm {
         }
         return maxSum
     }
+    
+    static func rob(_ nums: [Int]) -> Int {
+        // 如果只有一天,则直接偷,然后返回第一天内容即为偷窃最高金额
+        if nums.count == 1 {
+            return nums[0]
+        }
+        let count = [Int](repeating: 2, count: nums.count)
+        // 定义二维数组存储每天偷和不偷的偷窃金额
+        var dp = [[Int]](repeating: count, count: nums.count)
+        // 第一天不偷
+        dp[0][0] = 0
+        // 第一天偷
+        dp[0][1] = nums[0]
+        
+        //循环存储
+        for i in 1 ..< nums.count {
+            // 当天不偷,前一天偷的最大值
+            dp[i][0] = max(dp[i-1][0], dp[i-1][1])
+            // 当天偷,前一天不偷
+            dp[i][1] = nums[i] + dp[i - 1][0]
+        }
+        
+        return max(dp[nums.count - 1][0], dp[nums.count - 1][1])
+    }
 }
+

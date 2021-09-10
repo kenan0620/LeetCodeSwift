@@ -26,7 +26,8 @@ class ViewController: UIViewController {
 //              let count =   PrimaryAlgorithm.climbStairs(44)
         
 //        let num = PrimaryAlgorithm.maxSubArray([])
-        let num = PrimaryAlgorithm.rob([0])
+//        let num = PrimaryAlgorithm.rob([0])
+        let num = PrimaryAlgorithm.maxProfit([7,1,5,3,6,4])
 
         print(num)
     }

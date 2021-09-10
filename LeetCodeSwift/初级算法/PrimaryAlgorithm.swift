@@ -63,6 +63,22 @@ class PrimaryAlgorithm {
         return total
     }
     
+    // 买卖股票的最佳时机
+    static func maxProfit(_ prices: [Int]) -> Int {
+        if prices.count == 1 {
+            return 0
+        }
+        // 第一天不持有和持有的收益
+        var maxProfit0 = 0 ,maxProfit1 = -prices[0]
+        for i in 0 ..< prices.count {
+            // 第i天不持有和持有的收益
+            maxProfit0 = max(maxProfit0, maxProfit1 + prices[i])
+            maxProfit1 = max(maxProfit1,  -prices[i])
+        }
+        // 最后需要卖出,所以是不持有
+        return maxProfit0
+    }
+    
     // 最大字序和
     static func maxSubArray(_ nums: [Int]) -> Int {
         var dp = [Int](repeating: 0, count: nums.count)

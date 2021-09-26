@@ -29,9 +29,20 @@ class ViewController: UIViewController {
 //        let num = PrimaryAlgorithm.rob([0])
 //        let num = PrimaryAlgorithm.maxProfit([7,1,5,3,6,4])
 
-        let solu = Solution.init([1,2,3,4,5,6,7,8,])
+//        let solu = Solution.init([1,2,3,4,5,6,7,8,])
+//        solu.reset()
+//        solu.shuffle()
+//        solu.shuffle()
+//        solu.shuffle()
+//        solu.reset()
+//
+//        print(solu.shuffle())
         
-        print(solu.shuffle())
+//        let arr = PrimaryAlgorithm.fizzBuzz(2)
+//        print(arr)
+        
+        let count = PrimaryAlgorithm.countPrimes(499979)
+        print("结果是" + "\(count)")
     }
     func lcTree(){
         let root = TreeNode()

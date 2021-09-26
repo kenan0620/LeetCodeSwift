@@ -114,5 +114,97 @@ class PrimaryAlgorithm {
         
         return max(dp[nums.count - 1][0], dp[nums.count - 1][1])
     }
+    
+    /// Fizz Buzz
+    static func fizzBuzz(_ n: Int) -> [String] {
+        
+        var array:[String] = [String](repeating: "", count: n + 1)
+        
+        if n == 1 {
+            return ["1"]
+        }
+        
+        for i in 1 ..< n + 1 {
+            let mod15 = i % 15
+            let mod3 = i % 3
+            let mod5 = i % 5
+            
+            if mod15 == 0 {
+                array[i] = "FizzBuzz"
+            }else if  mod3 == 0{
+                array[i] = "Fizz"
+            }else if  mod5 == 0{
+                array[i] = "Buzz"
+            }else{
+                array[i] = "\(i)"
+            }
+        }
+        array.remove(at: 0)
+        return array
+    }
+    
+    /// 计数质数
+    static func countPrimes(_ n: Int) -> Int {
+        if n < 3 {
+            return 0
+        }
+        var count: Int = 0
+        var isPrimes = [Bool](repeating: true, count: n)
+        
+        for index in 2 ..< n {
+            if isPrimes[index] {
+                //步长为index，即：每次都是index的倍数
+                var i = 2*index
+                while i < n {
+                    //将index的倍数设置为合数
+                    isPrimes[i] = false
+                    i += index
+                }
+            }
+        }
+        for index in 2 ..< n {
+            if isPrimes[index] {
+                count += 1
+            }
+        }
+        
+        return count
+        
+    }
+    
+    static func isPrimes(_ n: Int) -> Int {
+        
+        for i in 2 ..< n {
+            if n % i == 0 {
+                return 0
+            }
+        }
+        
+        print("质数" + "\(n)")
+        return 1
+    }
+    
 }
 
+func countPrimes(_ n: Int) -> Int {
+    var count = 0
+    if n == 0 || n == 1 || n == 2{
+        return count
+    }
+    for i in 2 ..< n {
+        count += isPrimes(i)
+    }
+    
+    return count
+}
+
+func isPrimes(_ n: Int) -> Int {
+    
+    for i in 2 ..< n {
+        if n % i == 0 {
+            return 0
+        }
+    }
+    
+    return 1
+}
